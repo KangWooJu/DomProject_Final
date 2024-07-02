@@ -38,7 +38,9 @@
     <div class="page page-center">
       <div class="container container-tight py-4">
         <div class="text-center mb-4">
-          <img th:src="@{/images/Logo.PNG}" width="110" height="32" alt="..." class="navbar-brand-image">
+          <a href="/user/main">
+            <img th:src="@{/images/Logo.PNG}" width="110" height="32" alt="..." class="navbar-brand-image">
+          </a>
         </div>
         <form th:action="@{/user/signup}" th:object="${siteuserCreateForm}" class="card card-md" method="post">
           <div th:replace="~{form_errors :: formErrorsFragment}"></div>
@@ -97,7 +99,7 @@
           </div>
         </form>
         <div class="text-center text-secondary mt-3">
-          이미 계정이 있으신가요?<a th:href="@{user/login}" tabindex="-1">로그인</a>
+          이미 계정이 있으신가요? <a href="/user/login" tabindex="-1">로그인</a>
         </div>
       </div>
     </div>
