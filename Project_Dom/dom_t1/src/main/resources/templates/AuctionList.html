@@ -128,6 +128,19 @@
               </form>
             </div>
             <div class="col-9 justify-content-end">
+              <div class="row margin_top align-items-center" style="margin-bottom:50px;">
+                <div class="col-2">
+  
+                </div>
+                <!-- 검색창 시작 -->
+                <div class="col-8">
+                  <form method="get" th:action="@{/DomAuction/list}" class="input-group" style="margin-right:50px;">
+                    <input name="input" class="form-control me-2 searchInput" style="border-width:3px;" type="text" placeholder="상품검색">
+                    <button class="btn" style="border-width:3px;" type="submit">검색</button>
+                  </form>
+                </div>
+                <!-- 검색창 끝 -->
+              </div>
               <div class="row card margin-top align-items-center">
                 <div id="table-default" class="table-responsive">
                   <table class="table">
@@ -173,19 +186,19 @@
                   </ul>
                 </div>
               </div>
-            </div>
-            <div class="row margin_top align-items-center">
-              <div class="col-3">
-
+              <div class="row margin_top align-items-center">
+                <div class="col-2">
+  
+                </div>
+                <!-- 검색창 시작 -->
+                <div class="col-8">
+                  <form method="get" th:action="@{/DomAuction/list}" class="input-group" style="margin-right:50px;">
+                    <input name="input" class="form-control me-2 searchInput" style="border-width:3px;" type="text" placeholder="상품검색">
+                    <button class="btn" style="border-width:3px;" type="submit">검색</button>
+                  </form>
+                </div>
+                <!-- 검색창 끝 -->
               </div>
-              <!-- 검색창 시작 -->
-              <div class="col-6">
-                <form method="get" th:action="@{/DomAuction/list}" class="input-group" style="margin-right:50px;">
-                  <input name="input" class="form-control me-2 searchInput" style="border-width:3px;" type="text" placeholder="상품검색">
-                  <button class="btn" style="border-width:3px;" type="submit">검색</button>
-                </form>
-              </div>
-              <!-- 검색창 끝 -->
             </div>
           </div>
         </div>
