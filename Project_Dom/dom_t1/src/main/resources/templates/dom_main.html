@@ -33,8 +33,9 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <div class="container">
       <ul class="nav justify-content-end">
           <li class="nav-item">
-            <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/user/login}" style="color:rgba(13, 45, 132, 1);">로그인</a>
-            <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/user/logout}" style="color:rgba(13, 45, 132, 1);">로그아웃</a>
+
+            <a class="nav-link" sec:authorize ="isAnonymous()" th:href="@{/user/login}" style="color:rgba(13, 45, 132, 1);">로그인</a>
+            <a class="nav-link" sec:authorize ="isAuthenticated()" th:href="@{/user/logout}" style="color:rgba(13, 45, 132, 1);">로그아웃</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" sec:authorize="isAuthenticated()" href="#" style="color:rgba(13, 45, 132, 1);">마이페이지</a>
@@ -107,7 +108,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                 <img th:src="@{/images/computer.png}" class="card-img-top" alt="...">
               
               <div class="card-body">
-                <p class="card-text">컴퓨터</p>
+                <a th:href="@{/DomAuction/category/컴퓨터}">컴퓨터</a>
               </div>
             </div>
           </div>
@@ -117,7 +118,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                 <img th:src="@{/images/electronic.png}" class="card-img-top" alt="...">
               
               <div class="card-body">
-                <p class="card-text">디지털/가전</p>
+                <a th:href="@{/DomAuction/category/디지털}">디지털/가전</a>
               </div>
             </div>
           </div>
@@ -127,7 +128,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                 <img th:src="@{/images/book.png}" class="card-img-top" alt="...">
               
               <div class="card-body">
-                <p class="card-text">도서</p>
+                <a th:href="@{/DomAuction/category/도서}">도서</a>
               </div>
             </div>
           </div>
@@ -137,7 +138,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                 <img th:src="@{/images/trip.png}" class="card-img-top" alt="...">
               
               <div class="card-body">
-                <p class="card-text">여행/여가</p>
+                <a th:href="@{/DomAuction/category/여행}">여행/여가</a>
               </div>
             </div>
           </div>
@@ -147,7 +148,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                 <img th:src="@{/images/cartool.png}" class="card-img-top" alt="...">
               
               <div class="card-body">
-                <p class="card-text">자동차용품</p>
+                <a th:href="@{/DomAuction/category/자동차용품}">자동차용품</a>
               </div>
             </div>
           </div>
@@ -157,7 +158,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                 <img th:src="@{/images/beauty.png}" class="card-img-top" alt="...">
               
               <div class="card-body">
-                <p class="card-text">미용</p>
+                <a th:href="@{/DomAuction/category/미용}">미용</a>
               </div>
             </div>
           </div>
@@ -171,7 +172,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                 <img th:src="@{/images/game.png}" class="card-img-top" alt="...">
               
               <div class="card-body">
-                <p class="card-text">게임용품</p>
+                <a th:href="@{/DomAuction/category/게임용품}">게임용품</a>
               </div>
             </div>
           </div>
@@ -181,7 +182,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                 <img th:src="@{/images/sport.png}" class="card-img-top" alt="...">
               
               <div class="card-body">
-                <p class="card-text">스포츠/레저</p>
+                <a th:href="@{/DomAuction/category/스포츠}">스포츠/레저</a>
               </div>
             </div>
           </div>
@@ -191,7 +192,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                 <img th:src="@{/images/funiture.png}" class="card-img-top" alt="...">
               
               <div class="card-body">
-                <p class="card-text">가구/인테리어</p>
+                <a th:href="@{/DomAuction/category/가구}">가구/인테리어</a>
               </div>
             </div>
           </div>
@@ -201,7 +202,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                 <img th:src="@{/images/jewely.png}" class="card-img-top" alt="...">
               
               <div class="card-body">
-                <p class="card-text">귀금속/악세사리</p>
+                <a th:href="@{/DomAuction/category/귀금속}">귀금속/악세사리</a>
               </div>
             </div>
           </div>
@@ -211,7 +212,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                 <img th:src="@{/images/camera.png}" class="card-img-top" alt="...">
               
               <div class="card-body">
-                <p class="card-text">카메라</p>
+                <a th:href="@{/DomAuction/category/카메라}">카메라</a>
               </div>
             </div>
           </div>
@@ -221,7 +222,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                 <img th:src="@{/images/bike.png}" class="card-img-top" alt="...">
               
               <div class="card-body">
-                <p class="card-text">자전거</p>
+                <a th:href="@{/DomAuction/category/자전거}">자전거</a>
               </div>
             </div>
           </div>

@@ -156,5 +156,13 @@ public class AuctionListController {
         auctionBidService.createAuctionBid(auctionBidForm.getId(), bidder, auctionBidForm.getBidAmount());
         return String.format("redirect:/DomAuction/detail/%s", auctionBidForm.getId());
     }
+    @GetMapping("/DomAuction/category/{input}") // 옥션의 리스트를 보여주는 메소드 
+    public String clist(Model model, @RequestParam(value="page", defaultValue="0") int page, @PathVariable("input") String input) {
+        Page<AuctionRegisterEntity> paging = this.auctionRegisterService.getList2(page,input); // 페이지,input(검색기능)을 받아온 후에 모델에 넘겨주기
+        model.addAttribute("paging", paging); // 페이징 모델 Add
+        model.addAttribute("input",input); // input 모델 Add
+        
+        return "AuctionList"; 
+    }
         
 }
