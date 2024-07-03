@@ -24,7 +24,7 @@ import jakarta.persistence.criteria.Root;
 
 @RequiredArgsConstructor
 @Service
-public class AuctionRegisterService {
+public class AuctionRegisterService{
 
     private final AuctionRegisterRepository auctionregisterRepository;
 
@@ -42,7 +42,7 @@ public class AuctionRegisterService {
         }
     }
 
-    public void AuctionRegisterCreate(String title , String content, SiteuserEntity author,String link,int price,LocalDate et,String c,String location){ // 물품 등록할 때 필요한 데이터 Save 하는 메소드
+    public void AuctionRegisterCreate(String title , String content, SiteuserEntity author,String link,int price,LocalDate et,String c){ // 물품 등록할 때 필요한 데이터 Save 하는 메소드
         AuctionRegisterEntity are = new AuctionRegisterEntity(); // AuctionRegisterEntity 의 새로운 객체 are 생성
         are.setUsername(author.getUsername());
         are.setTitle(title); // 제목 데이터 가져오기
@@ -55,7 +55,6 @@ public class AuctionRegisterService {
         are.setHighestprice(price);
         are.setEndtime(et);
         are.setCategory(c);
-        are.setLocationcode(c);
         are.setHighestuser(author.getUsername());
         this.auctionregisterRepository.save(are); // 각종 필요한 정보들을 set 한 후에 리포지토리( AuctionRegisterRepository ) 로 넘김 , 그후 CRUD 중 U 시행 
     } //여기에서 사진 관련한 데이터를 추가해야할 경우 넣어주시면 됩니다 
@@ -67,6 +66,25 @@ public class AuctionRegisterService {
         Specification<AuctionRegisterEntity> specification = search(input); // specfication 객체에서 Input 을 파라미터로 Search 모듈 실행 
         return this.auctionregisterRepository.findAll(specification,pageable); // 조회한 내용 Or 조회전의 페이징 내용을 매게로 findAll 모듈 실행 
     }
+
+    private Specification<AuctionRegisterEntity> searchByCategory(String category) {
+        return (Root<AuctionRegisterEntity> q, CriteriaQuery<?> query, CriteriaBuilder cb) -> {
+            query.distinct(true); // 쿼리가 중복되지 않도록 설정 -> 결과 목록에서 중복된 엔티티를 제거 
+            return cb.equal(q.get("category"), category); // cb.equal : 두 값이 같은지를 검사
+        };
+    } // 6.28 추가 : 카테고리가 같은 것만 찾아서 
+    // Root : JPA의 Criteria API 클래스 -> 동적으로 쿼리를 생성
+    // query : JPA의 Criteria API의 쿼리 객체
+    // cb : 쿼리를 빌드하는데 사용되는 객체
+    // 새개의 파라미터는 Criteria 클래스를 참고할 필요가있음   
+
+    public Page<AuctionRegisterEntity> getListByCategory(int page, String category) {
+        List<Sort.Order> sorts = new ArrayList<>();
+        sorts.add(Sort.Order.desc("createDate"));
+        Pageable pageable = PageRequest.of(page, 10, Sort.by(sorts));
+        Specification<AuctionRegisterEntity> specification = searchByCategory(category);
+        return this.auctionregisterRepository.findAll(specification, pageable);
+    } // 6.28 추가 : searchByCategory를 이용하여 카테고리 별 리스트 페이징 생성 
 
     public void modify(AuctionRegisterEntity auctionRegisterEntity,String title,String content,int cprice)
     {
@@ -102,4 +120,7 @@ public class AuctionRegisterService {
             }// 검색어 ( input ) 이 존재하는지 Like 키워드를 통해 검색.
         }; 
     }
+
+    
+
 }

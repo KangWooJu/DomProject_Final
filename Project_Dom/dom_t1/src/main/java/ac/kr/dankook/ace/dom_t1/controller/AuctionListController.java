@@ -52,6 +52,16 @@ public class AuctionListController {
         return "AuctionList"; 
     }
 
+    @GetMapping("/DomAuction/list/category") // 6.28 추가 : 카테고리별 리스트 페이지 생성
+    public String listByCategory(Model model,
+                                 @RequestParam(value="page", defaultValue="0") int page, // int 타입 페이지를 HTML 넘겨준다
+                                 @RequestParam(value="category") String category) { // String 타입의 category를 넘겨준다.
+        Page<AuctionRegisterEntity> paging = this.auctionRegisterService.getListByCategory(page, category); // category 별로 찾을 수 있도록 하기 -> Service.getListByCategory 메소드 사용
+        model.addAttribute("paging", paging);
+        model.addAttribute("category", category);
+        return "AuctionList";
+    }
+
     @PreAuthorize("isAuthenticated()")
     @GetMapping(value = "/DomAuction/detail/{id}") // 옥션의 리스트 중 하나를 클릭했을 때 얻을 수 있는 화면 : 상세 페이지 -> HTML 내부에 링크 추가 필요 ( 질문 목록에 링크 추가하기 ): https://wikidocs.net/161302
     public String detail(Model model, @PathVariable("id") String id , AuctionRequestForm auctionRequestForm,AuctionBidForm bidform) {
@@ -93,7 +103,7 @@ public class AuctionListController {
         }
         String fa = file1.getOriginalFilename()+","+file2.getOriginalFilename()+","+file3.getOriginalFilename();
         SiteuserEntity siteuserEntity = this.siteuserService.getUser(principal.getName());
-        this.auctionRegisterService.AuctionRegisterCreate(auctionRegisterForm.getTitle(), auctionRegisterForm.getContent(),siteuserEntity, fa,auctionRegisterForm.getPrice(),auctionRegisterForm.getDuedate(),auctionRegisterForm.getCategory(),auctionRegisterForm.getLocationcode()); // AuctionRegisterService에 파라미터를 전달하고 메소드 시행 , principal객체를 통해서 사용자명을 얻은 후에 SiteuserEntity를 조회하여 옥션 등록글 저장시에 함께 저장
+        this.auctionRegisterService.AuctionRegisterCreate(auctionRegisterForm.getTitle(), auctionRegisterForm.getContent(),siteuserEntity, fa,auctionRegisterForm.getPrice(),auctionRegisterForm.getDuedate(),auctionRegisterForm.getCategory()); // AuctionRegisterService에 파라미터를 전달하고 메소드 시행 , principal객체를 통해서 사용자명을 얻은 후에 SiteuserEntity를 조회하여 옥션 등록글 저장시에 함께 저장
         return "redirect:/DomAuction/list";
     }
 
@@ -157,4 +167,5 @@ public class AuctionListController {
         return String.format("redirect:/DomAuction/detail/%s", auctionBidForm.getId());
     }
         
+    
 }
