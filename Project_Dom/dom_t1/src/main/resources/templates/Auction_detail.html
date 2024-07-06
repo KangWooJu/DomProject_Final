@@ -7,7 +7,7 @@
 * Copyright 2018-2023 codecalm.net Paweł Kuna
 * Licensed under MIT (https://github.com/tabler/tabler/blob/master/LICENSE)
 -->
-<html lang="en">
+<html lang="en" xmlns:th="http://thymeleaf.org">
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
@@ -123,12 +123,15 @@
                 
                           <form th:action = "@{/DomAuction/bid}" method="post" th:object = "${bidform}">
                             <div class="row g-4">
-                              <div class="col-9">
+                              <div class="col-9" th:if = "${yes}">
                                 <input type="text" class="form-control" name="bidprice" placeholder="가격(원)" th:field = "${bidform.bidAmount}">
                                 <input type="hidden" name="id" value = "${auctionRegisterEntity.id}" th:field = "${bidform.id}">
                               </div>
-                              <div class="col-3">
+                              <div class="col-3" th:if = "${yes}">
                                 <button type="submit" class="btn btn-primary w-300">입찰하기</button>
+                              </div>
+                              <div class="col-3" th:unless = "${yes}">
+                                <div style ="border: 5px; border-radius: 5px;padding: 2px;">입찰종료</div>
                               </div>
                               <div class="col-12" style="margin-top:25px;">
                                 <a th:href="@{|/delete/${auctionRegisterEntity.id}|}" 

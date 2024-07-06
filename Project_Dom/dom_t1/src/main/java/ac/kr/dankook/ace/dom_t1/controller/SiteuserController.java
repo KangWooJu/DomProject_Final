@@ -3,6 +3,7 @@ package ac.kr.dankook.ace.dom_t1.controller;
 import jakarta.validation.Valid;
 
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,6 +25,11 @@ public class SiteuserController {
     @GetMapping("main")
     public String getMethodName() {
         return "dom_main";
+    }
+    @PreAuthorize("isAuthenticated()")
+    @GetMapping("mainlog")
+    public String logpage() {
+        return "dom_main_in";
     }
     
     @GetMapping("/login")
