@@ -103,14 +103,25 @@
                         </div>
                         <div class="ms-3 w-50">
                           <div class="col-12 markdown">
-                            <p>현재입찰가</p>
+                            <div class="row justify-content-end">
+                              <div class="col-7">
+                                <p>현재입찰가</p>
+                              </div>
+                              <div class="col-2">
+                                <button th:href="@{#}" class="btn btn-primary w-300">좋아요</button>
+                              </div>
+                              <div class="col-1"></div>
+                              <div class="col-2">
+                                <button th:href="@{#}" class="btn btn-primary">카톡링크</button>
+                              </div>
+                            </div>
                             <h1 style="color:rgba(13,45,132,1); font-weight:1000;" th:text="${auctionRegisterEntity.highestprice}"></h1>
                             <p style="margin-top:50px;" th:text="${auctionRegisterEntity.content}"></p>
                           </div>
 
                           <p class="my-4" th:text="|작성일시 - ${auctionRegisterEntity.createDate}|"></p>
 
-                          <hr class="my-4">
+                          <hr class="my-1">
                 
                           <table class="table" style="display:table;">
                             <thead>
@@ -146,7 +157,7 @@
                                 <a th:href="@{|/delete/${auctionRegisterEntity.id}|}" 
                                   class="w-5" sec:authorize="isAuthenticated()"
                                   th:text="삭제하기"></a>
-                            </div>
+                              </div>
                           </form>
                         </div>
                       </div>
@@ -168,11 +179,11 @@
                               </a>
                             </div>
                             <div class="col text-truncate">
-                              <div class="text-reset d-block" th:text="${request.createDate}"></div>
+                              <div class="text-reset d-block" th:text="${request.author.username}"></div>
                               <div class="d-block text-secondary text-truncate mt-n1" style="font-size:15px;" th:text="${request.content}"></div>
                             </div>
                             <div class="col-auto">
-                              <p th:text="${request.modifyDate}"></p>
+                              <p th:text="${request.createDate}"></p>
                             </div>
                             
                           </div>
