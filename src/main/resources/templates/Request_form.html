@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--
+* Tabler - Premium and Open Source dashboard template with responsive and high quality UI.
+* @version 1.0.0-beta20
+* @link https://tabler.io
+* Copyright 2018-2023 The Tabler Authors
+* Copyright 2018-2023 codecalm.net Paweł Kuna
+* Licensed under MIT (https://github.com/tabler/tabler/blob/master/LICENSE)
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>DOM Product Detail</title>
+    <!-- CSS files -->
+    <link th:href="@{/css/tabler.min.css?1692870487}" rel="stylesheet"/>
+    <link th:href="@{/css/tabler-flags.min.css?1692870487}" rel="stylesheet"/>
+    <link th:href="@{/css/tabler-payments.min.css?1692870487}" rel="stylesheet"/>
+    <link th:href="@{/css/tabler-vendors.min.css?1692870487}" rel="stylesheet"/>
+    <link th:href="@{/css/demo.min.css?1692870487}" rel="stylesheet"/>
+    <style>
+      @import url('https://rsms.me/inter/inter.css');
+      :root {
+      	--tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+      }
+      body {
+      	font-feature-settings: "cv03", "cv04", "cv11";
+      }
+      .margin_top{
+        margin-top: 25px;
+      }
+      .margin_bottom{
+        margin-bottom: 25px;
+      }
+      .mgb-15{
+            margin-bottom:15px;
+      }
+      .mgt-30{
+            margin-top:30px;
+      }
+      .mgt-50{
+            margin-top:50px;
+      }
+        .repImgDiv{
+            margin-right:15px;
+            height:auto;
+            width:50%;
+        }
+        .repImg{
+            width:100%;
+            height:400px;
+        }
+        .wd50{
+            height:auto;
+            width:50%;
+        }
+    </style>
+  </head>
+    <body class=" d-flex flex-column">
+      <header th:replace="~{fragments/nav-header :: header}"></header>
+
+      <script th:src="@{/js/demo-theme.min.js?1692870487}"></script>
+      <script th:src="@{/js/tabler.min.js?1692870487}" defer></script>
+      <script th:src="@{/js/demo.min.js?1692870487}" defer></script>
+
+      <div class="page-wrapper">
+        <div class="page-header d-print-none">
+          <div class="container-xl margin_top margin_bottom">
+            <div class="row g-2 justify-content-center">
+              <div class="col-lg-9 col-xl-8">
+                <h1 class="page-title">
+                    평가글 수정
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="page-body">
+          <div class="container-xl">
+            <div class="row justify-content-center">
+              <div class="col-lg-11 col-xl-10">
+                <div class="card card-lg">
+                    <div class="card-body markdown">
+                        <form>
+                            <!--<div th:replace="~{form_errors :: formErrorsFragment}"></div>-->
+                            <div class="mb-3">
+                                <textarea class="form-control" rows="5" placeholder="상품평가"></textarea>
+                                <button type="submit" style="margin-top:60px;" class="btn btn-primary w-50">수정</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+</html>

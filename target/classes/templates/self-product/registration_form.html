@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Registration</title>
+
+    <!-- Add your CSS stylesheets or links here -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!--<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" type="text/css">-->
+
+    <style>
+    .logo{
+        width: 300px;
+        height: 100px;
+    }
+    .logo_registration{
+        width:480px;
+        height:80px;
+    }
+    .margin{
+        margin: 10px;
+    }
+    .margin_top{
+        margin-top: 100px;
+    }
+    .margin_bottom{
+        margin-bottom: 100px;
+    }
+    .margin_left{
+        margin-left:300px;
+    }
+    .margin_right{
+        margin-right:300px;
+    }
+    .content{
+        width:500px;
+        height:100px;
+    }
+    .logo_registration{
+        margin-left:15px;
+        margin-top:50px;
+    }
+    </style>
+</head>
+<body>
+    <div class="container justify-content-around text-center margin_top margin_bottom">
+        <div>
+            <img th:src="@{/images/Logo.PNG}" class="logo" alt="...">
+            <img th:src="@{/images/LogoRegistration.PNG}" class="logo_registration" alt="...">
+        </div>
+    </div>
+    
+    <form class="row g-4 justify-content-evenly margin_left margin_right">
+        <div class="col-sm-5">
+            <label class="form-label" style="font-size:large">이메일 주소</label>
+            <input type="text" class="form-control" id="email_address" placeholder="user@email" value="">
+        </div>
+        <div class="col-sm-5">
+            <label class="form-label" style="font-size:large">닉네임</label>
+            <input type="text" class="form-control" id="nickname" placeholder="nickname" value="">
+        </div>
+
+        <div class="col-sm-5">
+            <label class="form-label" style="font-size:large">비밀번호</label>
+            <input type="text" class="form-control" id="password" placeholder="password" value="">
+        </div>
+        <div class="col-sm-5">
+            <label class="form-label" style="font-size:large">전화번호</label>
+            <input type="text" class="form-control" id="phone_number" placeholder="phone_number" value="">
+        </div>
+
+        <div class="col-md-5">
+            <label class="form-label" style="font-size:large">비밀번호 찾기힌트</label>
+            <select class="form-select" id="password_hint">
+                <option value="">Choose...</option>
+                <option>가장 좋아하는 것은?</option>
+                <option>가장 싫어하는 것은?</option>
+                <option>가장 감명깊게 본 영화는?</option>
+                <option>좋아하는 색깔은?</option>
+                <option>존경하는 선생님 성함은?</option>
+            </select>
+        </div>
+        <div class="col-md-5">
+            <label class="form-label" style="font-size:large">가입경로</label>
+            <select class="form-select" id="registration_root">
+                <option value="">Choose...</option>
+                <option>지인 추천</option>
+                <option>SNS 광고</option>
+                <option>인터넷 검색</option>
+            </select>
+        </div>
+
+        <div class="col-sm-5">
+            <label class="form-label" style="font-size:large">비밀번호 찾기힌트 정답</label>
+            <input type="text" class="form-control" id="password_correctanswer" placeholder="correct_answer" value="">
+        </div>
+        <div class="col-sm-5 align-self-end">
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="term_age">
+                <label class="form-check-label">[필수] 만 14세 이상이며 모두 동의합니다</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="term_ad">
+                <label class="form-check-label">[선택] 광고성 정보 수신에 모두 동의합니다.</label>
+            </div>
+        </div>
+
+        <div class="col-11" style="margin-top:50px">
+            <button onclick="location.href='main'" type="button" class="w-100 btn btn-primary btn-lg">Submit</button>
+        </div>
+    </form>
+</body>

@@ -1,0 +1,267 @@
+<!doctype html>
+<!--
+* Tabler - Premium and Open Source dashboard template with responsive and high quality UI.
+* @version 1.0.0-beta20
+* @link https://tabler.io
+* Copyright 2018-2023 The Tabler Authors
+* Copyright 2018-2023 codecalm.net Paweł Kuna
+* Licensed under MIT (https://github.com/tabler/tabler/blob/master/LICENSE)
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>DOM Product List</title>
+    <!-- CSS files -->
+    <link th:href="@{/css/tabler.min.css?1692870487}" rel="stylesheet"/>
+    <link th:href="@{/css/tabler-flags.min.css?1692870487}" rel="stylesheet"/>
+    <link th:href="@{/css/tabler-payments.min.css?1692870487}" rel="stylesheet"/>
+    <link th:href="@{/css/tabler-vendors.min.css?1692870487}" rel="stylesheet"/>
+    <link th:href="@{/css/demo.min.css?1692870487}" rel="stylesheet"/>
+    <style>
+      @import url('https://rsms.me/inter/inter.css');
+      :root {
+      	--tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+      }
+      body {
+      	font-feature-settings: "cv03", "cv04", "cv11";
+      }
+      .margin_top{
+        margin-top: 25px;
+      }
+      .margin_bottom{
+        margin-bottom: 25px;
+      }
+      .btn-search{
+        border-color: rgba(13,45,132,1);
+        color:rgba(13,45,132,1);
+      }
+      .btn-search-hover{
+        border-color: rgba(13,45,132,1);
+        color:white;
+        background-color:rgba(13,45,132,1);
+      }
+      .category:hover{
+        border-color: rgba(13,45,132,1);
+      }
+    </style>
+  </head>
+  <body class=" d-flex flex-column">
+    <header th:replace="~{fragments/nav-header :: header}"></header>
+
+    <script th:src="@{/js/demo-theme.min.js?1692870487}"></script>
+    <script th:src="@{/js/tabler.min.js?1692870487}" defer></script>
+    <script th:src="@{/js/demo.min.js?1692870487}" defer></script>
+
+    <div class="page-wrapper">
+      <div class="page-header d-print-none">
+        <div class="container-xl margin_top margin_bottom">
+          <div class="row g-2 align-items-center">
+            <div class="col">
+              <h1 class="page-title">
+                상품 리스트
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="Page-body">
+        <div class="container-xl">
+          <div class="row" style="margin-top:45px;">
+            <div class="col-2 card align-items-center" style="margin-right:80px;">
+              <div class="subheader mb-1" style="margin-top:10px;">카테고리</div>
+              <div class="list-group list-group-transparent mb-4">
+                <a class="btn list-group-item list-group-item-action align-items-center" href="#">
+                  ALL
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item d-flex align-items-center" href="#">
+                  컴퓨터
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  디지털/가전
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  도서
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  여행/여가
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  자동차용품
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  미용
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  게임용품
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="category list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  스포츠/레저
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  가구/인테리어
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  귀금속/악세사리
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  카메라
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  자전거
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+              </div>
+            </div>
+            <div class="col-9 justify-content-end">
+              <div class="row card margin-top align-items-center">
+                <div id="table-default" class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th style="width: 15%;">카테고리</th>
+                        <th style="width: 40%;">제목</th>
+                        <th style="width: 10%;">작성자</th>
+                        <th style="width: 15%;">즉시거래가</th>
+                        <th style="width: 15%;">입찰마감기한</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-tbody">
+                      <tr>
+                        <td class="sort-name">컴퓨터</td>
+                        <td class="sort-city">맥북에어 15인치 8/256 미드나이트</td>
+                        <td class="sort-type">홍길동</td>
+                        <td class="sort-type">1,350,000</td>
+                        <td class="sort-type">24/06/22</td>
+                      </tr>
+                      <tr>
+                        <td class="sort-name">디지털/가전</td>
+                        <td class="sort-city">LG OLED 88인치 8K TV</td>
+                        <td class="sort-type">김철수</td>
+                        <td class="sort-type">5,000,000</td>
+                        <td class="sort-type">24/06/23</td>
+                      </tr>
+                      <tr>
+                        <td class="sort-name">도서</td>
+                        <td class="sort-city">미분적분학</td>
+                        <td class="sort-type">박영희</td>
+                        <td class="sort-type">10,000</td>
+                        <td class="sort-type">24/06/24</td>
+                      </tr>
+                      <tr>
+                        <td class="sort-name">여행/여가</td>
+                        <td class="sort-city">로우로우 28리터 여행용캐리어</td>
+                        <td class="sort-type">김범수</td>
+                        <td class="sort-type">100,000</td>
+                        <td class="sort-type">24/06/25</td>
+                      </tr>
+                      <tr>
+                        <td class="sort-name">자동차용품</td>
+                        <td class="sort-city">차량용 72W 고속 C타입 충전기</td>
+                        <td class="sort-type">나얼</td>
+                        <td class="sort-type">20,000</td>
+                        <td class="sort-type">24/06/26 </td>
+                      </tr>
+                      <tr>
+                        <td class="sort-name">미용</td>
+                        <td class="sort-city">이즈앤트리 헤어스프레이 워터타입</td>
+                        <td class="sort-type">박효신</td>
+                        <td class="sort-type">3,000</td>
+                        <td class="sort-type">24/06/27</td>
+                      </tr>
+                      <tr>
+                        <td class="sort-name">게임용품</td>
+                        <td class="sort-city">PlayStation5 1TB</td>
+                        <td class="sort-type">이민호</td>
+                        <td class="sort-type">150,000</td>
+                        <td class="sort-type">24/06/28</td>
+                      </tr>
+                      <tr>
+                        <td class="sort-name">스포츠레저</td>
+                        <td class="sort-city">스페셜라이즈드 에스웤 타막 SL7</td>
+                        <td class="sort-type">김경민</td>
+                        <td class="sort-type">8,000,000</td>
+                        <td class="sort-type">24/06/29</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="col" style="margin-top:30px;">
+                  <ul class="pagination">
+                    <li class="page-item disabled">
+                      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+                        <!-- Download SVG icon from http://tabler-icons.io/i/chevron-left -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 6l-6 6l6 6" /></svg>
+                      </a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">
+                        <!-- Download SVG icon from http://tabler-icons.io/i/chevron-right -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="row margin_top align-items-center">
+                <div class="col-3">
+
+                </div>
+                <div class="col-6">
+                  <div class="input-group" style="margin-right:50px;">
+                    <input id="search_input" class="form-control me-2 searchInput" style="border-width:3px;" type="text" placeholder="상품검색">
+                    <button id="btn_search" class="btn" style="border-width:3px;" onclick="btn_search()">검색</button>
+                  </div>
+                </div>
+                <!-- 검색창 끝 -->
+                <!-- 폼처리 -->
+                <form th:action="@{search}" method="get" id="searchForm">
+                  <input type="hidden" id="input" name="input">
+                  <input type="hidden" id="page" name="page">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script layout:fragment="script" type="text/javascript">
+    function btn_search(){
+     window.scrollTo({top:0, behavior:"smooth"});
+     document.getElementById('input').value = document.getElementById('search_input').value;
+     document.getElementById('page').value = 0;  // 검색버튼을 클릭할 경우 0페이지부터 조회한다.
+     document.getElementById('searchForm').submit();
+    }
+    function btn_test(){
+       window.scrollTo({top:0, behavior:"smooth"});
+    }
+    const categoryField = document.getElementById('category');
+    switch(Number(categoryField.value)) {
+      case 0:
+        print("debug");
+        break;
+      default:
+        break;
+    }
+ </script>
+</html>

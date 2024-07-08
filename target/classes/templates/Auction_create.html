@@ -1,0 +1,213 @@
+<!doctype html>
+<!--
+* Tabler - Premium and Open Source dashboard template with responsive and high quality UI.
+* @version 1.0.0-beta20
+* @link https://tabler.io
+* Copyright 2018-2023 The Tabler Authors
+* Copyright 2018-2023 codecalm.net Paweł Kuna
+* Licensed under MIT (https://github.com/tabler/tabler/blob/master/LICENSE)
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>DOM Post Product</title>
+    <!-- CSS files -->
+    <link th:href="@{/css/tabler.min.css?1692870487}" rel="stylesheet"/>
+    <link th:href="@{/css/tabler-flags.min.css?1692870487}" rel="stylesheet"/>
+    <link th:href="@{/css/tabler-payments.min.css?1692870487}" rel="stylesheet"/>
+    <link th:href="@{/css/tabler-vendors.min.css?1692870487}" rel="stylesheet"/>
+    <link th:href="@{/css/demo.min.css?1692870487}" rel="stylesheet"/>
+    <style>
+      @import url('https://rsms.me/inter/inter.css');
+      :root {
+      	--tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+      }
+      body {
+      	font-feature-settings: "cv03", "cv04", "cv11";
+      }
+      .margin_top{
+        margin-top: 25px;
+      }
+      .margin_bottom{
+        margin-bottom: 25px;
+      }
+    </style>
+  </head>
+  <body  class=" d-flex flex-column">
+    <header th:replace="~{fragments/nav-header :: header}"></header>
+
+    <script th:src="@{/js/demo-theme.min.js?1692870487}"></script>
+
+    <div class="page-wrapper">
+      <div class="page-header d-print-none">
+        <div class="container-xl margin_top margin_bottom">
+          <div class="row g-2 align-items-center">
+            <div class="col">
+              <h1 class="page-title">
+                Post Product
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="page-body">
+        <div class="container-xl">
+          <div class="row row-cards">
+            <div class="col-12">
+              <form th:action="@{/DomAuction/create}" th:object="${productPostForm}" method="post" class="card">
+                <div class="card-body">
+                  <div class="row g-5 justify-content-evenly" style="margin-top:50px; margin-bottom:50px;">
+                    <div class="col-xl-5">
+                      <div class="row">
+                        <div class="col-md-6 col-xl-12">
+                          <div class="mb-8">
+                            <label class="form-label">Image</label>
+                            <input type="file" class="form-control" id="image_input">
+                            <input type="file" class="form-control" id="image_input">
+                            <input type="file" class="form-control" id="image_input">
+                          </div>
+                          <div class="mb-4">
+                            <label class="form-label">Location</label>
+                            <select th:field="${productPostForm.location}" name="category" class="form-select">
+                              <option selected="selected" value="0">서울특별시</option>
+                              <option value="1">경기도</option>
+                              <option value="2">인천광역시</option>
+                              <option value="3">강원도</option>
+                              <option value="4">충청북도</option>
+                              <option value="5">충청남도</option>
+                              <option value="6">세종특별시</option>
+                              <option value="7">대전광역시</option>
+                              <option value="8">경상북도</option>
+                              <option value="9">대구광역시</option>
+                              <option value="10">전라북도</option>
+                              <option value="11">광주광역시</option>
+                              <option value="12">경상남도</option>
+                              <option value="13">울산광역시</option>
+                              <option value="14">전라남도</option>
+                              <option value="15">부산광역시</option>
+                              <option value="16">제주특별시</option>
+                            </select>
+                          </div>
+                          <div class="mb-4">
+                            <label class="form-label">Due date</label>
+                            <div class="row g-2">
+                              <div class="col-5">
+                                <select th:field="${productPostForm.month}" name="user[month]" class="form-select">
+                                  <option value="1">Month</option>
+                                  <option value="2">January</option>
+                                  <option value="2">February</option>
+                                  <option value="3">March</option>
+                                  <option value="4">April</option>
+                                  <option value="5">May</option>
+                                  <option value="6">June</option>
+                                  <option selected="selected" value="7">July</option>
+                                  <option value="8">August</option>
+                                  <option value="9">September</option>
+                                  <option value="10">October</option>
+                                  <option value="11">November</option>
+                                  <option value="12">December</option>
+                                </select>
+                              </div>
+                              <div class="col-3">
+                                <select th:field="${productPostForm.day}" name="user[day]" class="form-select">
+                                  <option value="">Day</option>
+                                  <option value="1" selected>1</option>
+                                  <option value="2" >2</option>
+                                  <option value="3" >3</option>
+                                  <option value="4" >4</option>
+                                  <option value="5" >5</option>
+                                  <option value="6" >6</option>
+                                  <option value="7" >7</option>
+                                  <option value="8" >8</option>
+                                  <option value="9" >9</option>
+                                  <option value="10" >10</option>
+                                  <option value="11" >11</option>
+                                  <option value="12" >12</option>
+                                  <option value="13" >13</option>
+                                  <option value="14" >14</option>
+                                  <option value="15" >15</option>
+                                  <option value="16" >16</option>
+                                  <option value="17" >17</option>
+                                  <option value="18" >18</option>
+                                  <option value="19" >19</option>
+                                  <option value="20" >20</option>
+                                  <option value="21" >21</option>
+                                  <option value="22" >22</option>
+                                  <option value="23" >23</option>
+                                  <option value="24" >24</option>
+                                  <option value="25" >25</option>
+                                  <option value="26" >26</option>
+                                  <option value="27" >27</option>
+                                  <option value="28" >28</option>
+                                  <option value="29" >29</option>
+                                  <option value="30" >30</option>
+                                  <option value="31" >31</option>
+                                </select>
+                              </div>
+                              <div class="col-4">
+                                <select th:field="${productPostForm.year}" name="user[year]" class="form-select">
+                                  <option value="">Year</option>
+                                  <option value="2025" >2025</option>
+                                  <option value="2024" selected>2024</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mb-4">
+                            <label class="form-label">Start price</label>
+                            <input th:field="${productPostForm.price}" type="text" class="form-control" name="example-text-input" placeholder="start price">
+                          </div>
+                          <div class="mb-4">
+                            <label class="form-label">Category</label>
+                            <select th:field="${productPostForm.category}" name="category" class="form-select">
+                              <option selected="selected" value="0">컴퓨터</option>
+                              <option value="디지털/가전">디지털/가전</option>
+                              <option value="도서">도서</option>
+                              <option value="3">여행/여가</option>
+                              <option value="4">자동차용품</option>
+                              <option value="5">미용</option>
+                              <option value="6">게임용품</option>
+                              <option value="7">스포츠/레저</option>
+                              <option value="8">가구/인테리어</option>
+                              <option value="9">귀금속/악세사리</option>
+                              <option value="10">카메라</option>
+                              <option value="11">자전거</option>
+                              <option value="12">미술/음악</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xl-5">
+                      <div class="row">
+                        <div class="col-md-6 col-xl-12">
+                          <div class="mb-4">
+                            <label class="form-label">Title</label>
+                            <input th:field="${productPostForm.title}" type="text" class="form-control" name="example-text-input" placeholder="title">
+                          </div>
+                          <div class="mb-6">
+                            <label class="form-label">Detail<span class="form-label-description">...</span></label>
+                            <textarea th:field="${productPostForm.detail}" class="form-control" type="text" name="example-textarea-input" rows="20" placeholder="describe more detail"></textarea>
+                          </div>
+                          <div class="mb-5">
+                            <button type="submit" class="btn btn-primary w-100">Submit</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Libs JS -->
+    <!-- Tabler Core -->
+    <script th:src="@{/js/tabler.min.js?1692870487}" defer></script>
+    <script th:src="@{/js/demo.min.js?1692870487}" defer></script>
+  </body>
+</html>

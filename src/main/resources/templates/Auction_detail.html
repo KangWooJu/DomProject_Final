@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<!--
+* Tabler - Premium and Open Source dashboard template with responsive and high quality UI.
+* @version 1.0.0-beta20
+* @link https://tabler.io
+* Copyright 2018-2023 The Tabler Authors
+* Copyright 2018-2023 codecalm.net Paweł Kuna
+* Licensed under MIT (https://github.com/tabler/tabler/blob/master/LICENSE)
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>DOM Product Detail</title>
+    <!-- CSS files -->
+    <link th:href="@{/css/tabler.min.css?1692870487}" rel="stylesheet"/>
+    <link th:href="@{/css/tabler-flags.min.css?1692870487}" rel="stylesheet"/>
+    <link th:href="@{/css/tabler-payments.min.css?1692870487}" rel="stylesheet"/>
+    <link th:href="@{/css/tabler-vendors.min.css?1692870487}" rel="stylesheet"/>
+    <link th:href="@{/css/demo.min.css?1692870487}" rel="stylesheet"/>
+    <style>
+      @import url('https://rsms.me/inter/inter.css');
+      :root {
+      	--tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+      }
+      body {
+      	font-feature-settings: "cv03", "cv04", "cv11";
+      }
+      .margin_top{
+        margin-top: 25px;
+      }
+      .margin_bottom{
+        margin-bottom: 25px;
+      }
+      .mgb-15{
+            margin-bottom:15px;
+      }
+      .mgt-30{
+            margin-top:30px;
+      }
+      .mgt-50{
+            margin-top:50px;
+      }
+        .repImgDiv{
+            margin-right:15px;
+            height:auto;
+            width:50%;
+        }
+        .repImg{
+            width:100%;
+            height:400px;
+        }
+        .wd50{
+            height:auto;
+            width:50%;
+        }
+    </style>
+  </head>
+    <body class=" d-flex flex-column">
+      <header th:replace="~{fragments/nav-header :: header}"></header>
+
+      <script th:src="@{/js/demo-theme.min.js?1692870487}"></script>
+      <script th:src="@{/js/tabler.min.js?1692870487}" defer></script>
+      <script th:src="@{/js/demo.min.js?1692870487}" defer></script>
+
+      <div class="page-wrapper">
+        <div class="page-header d-print-none">
+          <div class="container-xl margin_top margin_bottom">
+            <div class="row g-2 justify-content-center">
+              <div class="col-lg-9 col-xl-8">
+                <h1 class="page-title" th:text="캐논">
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="page-body">
+          <div class="container-xl">
+            <div class="row justify-content-center">
+              <div class="col-lg-11 col-xl-10">
+                <div class="card card-lg">
+                  <div class="card-body markdown">
+                    <div class="row justify-content-center">
+                      <div class="d-flex">
+                        <div class="repImgDiv">
+                            <img th:src="@{/images/CanonCamera.png}" class = "rounded repImg" th:alt="...">
+                            <img th:src="@{/images/CanonCamera.png}" class = "rounded repImg" th:alt="...">
+                            <img th:src="@{/images/CanonCamera.png}" class = "rounded repImg" th:alt="...">
+                        </div>
+                        <div class="ms-3 w-50">
+                          <div class="col-12 markdown">
+                            <div class="row justify-content-end">
+                              <div class="col-9">
+                                <p>현재입찰가</p>
+                              </div>
+                              <div class="col-3">
+                                <button th:href="@{#}" class="btn btn-primary w-300">카톡링크</button>
+                              </div>
+                            </div>
+                            <h1 style="color:rgba(13,45,132,1); font-weight:1000;">240000원</h1>
+                            <p style="margin-top:50px; font-weight:bold;">모델명   -   Canon 5D MarkII (2008)</p>
+                            <p style="font-weight:bold">사양 - 풀프레임(1:1)   |   감도(ISO):100~6400    |   유효화소수:2110만   |   초점영역:15개</p>
+                          </div>
+
+                          <p class="my-4" style="font-size:10px;">작성일시 - 24/06/06</p>
+
+                          <hr class="my-4">
+                
+                          <table class="table" style="display:table;">
+                            <thead>
+                              <tr>
+                                <th style="display:table-cell; width:25%;">누적입찰수</th>
+                                <th style="display:table-cell; width:25%;">즉시거래가</th>
+                                <th style="display:table-cell; width:25%;">거래지역</th>
+                                <th style="display:table-cell; width:25%;">입찰마감</th>
+                              </tr>
+                            </thead>
+                            <tbody class="table-tbody">
+                              <td style="flex:1;">5</td>
+                              <td style="flex:1;">200,000</td>
+                              <td style="flex:1;">서울특별시</td>
+                              <td style="flex:1;">24/06/22</td>
+                            </tbody>
+                          </table>
+                            
+                          <hr class="my-4">
+                
+                          <form>
+                            <div class="row g-4">
+                              <div class="col-9">
+                                <input type="text" class="form-control" id="priceid" name="pricename" placeholder="가격(원)">
+                              </div>
+                              <div class="col-3">
+                                <button type="submit" class="btn btn-primary w-300">입찰하기</button>
+                              </div>
+                            </div>
+                          </form>
+                          <div class="col-12" style="margin-top:25px;">
+                            <a href="#">삭제하기</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <hr style="margin-top:30px;">
+
+                  <div class="col-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <h3 class="card-title" style="color:rgba(13,45,132,1); font-weight:1000;">상품 평가글</h3>
+                        <!-- 답변개수표시 <h5 class="border-bottom my-3 py-2" th:text="|${#lists.size(auctionReigsterEntity.auctionRequestEntityList)}개의 답변이 있습니다.|"></h5>-->
+                      </div>
+                      <div class="list-group">
+                        <div class="list-group-item">
+                          <div class="row align-items-center">
+                            <!--<div class="col-auto"><span class="badge bg-red"></span></div>-->
+                            <div class="col-auto">
+                              <a>
+                                <span class="avatar" style="background-image: url(./static/avatars/000m.jpg)"></span>
+                              </a>
+                            </div>
+                            <div class="col text-truncate">
+                              <a class="text-reset d-block">김철수</a>
+                              <div class="d-block text-secondary text-truncate mt-n1" style="font-size:15px;">너무 비싼거 같아요</div>
+                            </div>
+                            <div class="col-auto">
+                              <a type="submit" class="w-5">수정</a>
+                            </div>
+                            <div class="col-auto">
+                              <a type="submit" class="w-5">삭제</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="list-group-item">
+                          <div class="row align-items-center">
+                            <!--<div class="col-auto"><span class="badge bg-red"></span></div>-->
+                            <div class="col-auto">
+                              <a>
+                                <span class="avatar" style="background-image: url(./static/avatars/000m.jpg)"></span>
+                              </a>
+                            </div>
+                            <div class="col text-truncate">
+                              <a class="text-reset d-block">김영희</a>
+                              <div class="d-block text-secondary text-truncate mt-n1" style="font-size:15px;">가격은 좋은데 저는 안살거같네요</div>
+                            </div>
+                            <div class="col-auto">
+                              <a type="submit" class="w-5">수정</a>
+                            </div>
+                            <div class="col-auto">
+                              <a type="submit" class="w-5">삭제</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="list-group-item">
+                          <div class="row align-items-center">
+                            <!--<div class="col-auto"><span class="badge bg-red"></span></div>-->
+                            <div class="col-auto">
+                              <a>
+                                <span class="avatar" style="background-image: url(./static/avatars/000m.jpg)"></span>
+                              </a>
+                            </div>
+                            <div class="col text-truncate">
+                              <a class="text-reset d-block">홍길동</a>
+                              <div class="d-block text-secondary text-truncate mt-n1" style="font-size:15px;">상태가 좋아서 합리적인 가격인거같아요</div>
+                            </div>
+                            <div class="col-auto">
+                              <a type="submit" class="w-5">수정</a>
+                            </div>
+                            <div class="col-auto">
+                              <a type="submit" class="w-5">삭제</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12" style="margin-top: 20px;">
+                    <div class="card">
+                      <div class="card-header">
+                        <h3 class="card-title" style="color:rgba(13,45,132,1); font-weight:1000;">평가글 등록</h3>
+                      </div>
+                      <div class="list-group">
+                        <div class="list-group-item">
+                          <div class="row align-items-center">
+                            <form>
+                              <div class="col-11" style="margin:20px;">
+                                <textarea class="form-control" type="text" rows="5" placeholder="상품평가"></textarea>
+                              </div>
+                              <div class="col-2" style="margin:20px;">
+                                <button type="submit" class="btn btn-primary w-50">등록</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+</html>
