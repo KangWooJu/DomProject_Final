@@ -12,7 +12,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>Tabs - Tabler - Premium and Open Source dashboard template with responsive and high quality UI.</title>
+    <title>Dom MyPage</title>
     <!-- CSS files -->
     <link th:href="@{/css/tabler.min.css?1692870487}" rel="stylesheet"/>
     <link th:href="@{/css/tabler-flags.min.css?1692870487}" rel="stylesheet"/>
@@ -27,6 +27,10 @@
       body {
       	font-feature-settings: "cv03", "cv04", "cv11";
       }
+      .card_margin{
+        margin-left:40px; 
+        margin-right:40px;
+      }
     </style>
   </head>
     <body class="d-flex flex-column">
@@ -37,9 +41,9 @@
                 <div class="page-header d-print-none">
                   <div class="container-xl">
                     <div class="row g-2 align-items-center">
-                      <div class="col">
+                      <div class="col" style="margin-top:50px; margin-bottom:50px; margin-left:120px;">
                         <h2 class="page-title">
-                          Tables
+                          마이페이지
                         </h2>
                       </div>
                     </div>
@@ -47,14 +51,195 @@
                 </div>
                 <!-- Page body -->
                 <div class="page-body">
-                    <div class="container-xl">
-                        <div class="row row-cards">
-                            <div class="col-lg-8">
-                                <div class="card">
+                  <div class="container-xl">
+                    <div class="row row-cards justify-content-center">
+                      <div class="col-lg-10" style="margin-bottom:25px;">
+                        <div class="card">
+                          <div class="card-header card_margin">
+                            <h2 class="card-title">내 정보</h2>
+                          </div>
+                          <div class="card-body card_margin">
+                            <div class="mb-3">
+                              <div class="row" style="margin-top:30px;">
+                                <div class="col-4">
+                                  <span>
+                                    <img th:src="@{/images/user.png}" width="300" height="300">
+                                  </span>
                                 </div>
+                                <div class="col-8">
+                                  <div class="row">
+                                    <div class="col-12">
+                                      <div class="mb-6">
+                                        <h1>DomUser</h1>
+                                      </div>
+                                    </div>
+                                    <div class="col-5">
+                                      <div class="mb-6">
+                                        <h4>이메일주소</h4>
+                                        <input class="form-control" value="DomUser@gmail.com" disabled>
+                                      </div>
+                                    </div>
+                                    <div class="col-1"></div>
+                                    <div class="col-5">
+                                      <div class="mb-6">
+                                        <h4>회원정보</h4>
+                                        <input class="form-control" placeholder="..." disabled>
+                                      </div>
+                                    </div>
+                                    <div class="col-5">
+                                      <div class="mb-6">
+                                        <h4>누적구매횟수</h4>
+                                        <input class="form-control" value="0" disabled>
+                                      </div>
+                                    </div>
+                                    <div class="col-1"></div>
+                                    <div class="col-5">
+                                      <div class="mb-6">
+                                        <h4>누적판매횟수</h4>
+                                        <input class="form-control" value="0" disabled>
+                                      </div>
+                                    </div>
+                                    <div class="col-9"></div>
+                                    <div class="col-2">
+                                      <button type="submit" class="btn btn-primary w-300">정보수정</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
+                          </div>
                         </div>
-                    <div>
+                      </div>
+                      <div class="col-lg-5">
+                        <div class="card">
+                          <div class="card-header card_margin">
+                            <h3 class="card-title">좋아요 표시한 거래</h3>
+                          </div>
+                          <div class="card-body card_margin">
+                            <div class="subheader mb-1" style="margin-top:10px;">게시글명</div>
+              <form class="list-group list-group-transparent mb-4">
+                <a class="btn list-group-item list-group-item-action align-items-center" href="#">
+                  게시글1
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  게시글2
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  게시글3
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  게시글4
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  게시글5
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  게시글6
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  게시글7
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  게시글8
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  게시글9
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  게시글10
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  게시글11
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  게시글12
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  게시글13
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+              </form>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-5">
+                        <div class="card">
+                          <div class="card-header card_margin">
+                            <h3 class="card-title">나의 거래</h3>
+                          </div>
+                          <div class="card-body card_margin">
+                            <div class="subheader mb-1" style="margin-top:10px;">게시글명</div>
+              <form class="list-group list-group-transparent mb-4">
+                <a class="btn list-group-item list-group-item-action align-items-center" href="#">
+                  게시글1
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  게시글2
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  게시글3
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  게시글4
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  게시글5
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  게시글6
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  게시글7
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  게시글8
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  게시글9
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  게시글10
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  게시글11
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  게시글12
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+                <a class="btn list-group-item list-group-item-action d-flex align-items-center" href="#">
+                  게시글13
+                  <small class="text-secondary ms-auto"></small>
+                </a>
+              </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
             </div>
 
