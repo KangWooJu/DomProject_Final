@@ -39,6 +39,12 @@ public class Dom_Controller {
         return "redirect:/user/main";
     }
 
+    @GetMapping("/user/mypage")
+    public String Dom_mypage(Model model)
+    {
+        return "MyPage";
+    }
+
     @GetMapping("/DomAuction/create")
     public String Dom_post_product(Model model, ProductPostForm productPostForm)
     {
