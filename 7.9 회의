@@ -1,0 +1,25 @@
+[ 개발현황 ]
+- 입찰종료기능
+  : Controller에서 View로 boolean model add
+    -> true/false에 따라 th:if/th:unless
+    
+- MyPage Prototype 추가 (ViewLayerBranch)
+
+
+[ 개발예정 ]
+- SpringSecurity 버전업
+
+- 게시글 좋아요
+  : AuctionListController에서 AuctionRegisterService.command() 호출
+    -> AuctionRegisterEntity에 SiteuserEntity(좋아요한사용자) 추가 (Set 자료형)
+    -> AuctionDetail 페이지에 좋아요 활성화/비활성화 버튼배치
+    
+- 마이페이지
+  - 회원정보
+  - 간단한통계
+  - 작성한 게시글 목록
+  - 좋아요표시 게시글목록 (보류)
+  
+- 프로젝트 개발관련 페이지 작성
+
+ps.회의록 작성이 늦어져서 죄송합니다..
