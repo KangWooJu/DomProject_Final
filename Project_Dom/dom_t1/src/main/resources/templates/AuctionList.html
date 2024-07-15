@@ -69,8 +69,8 @@
       
       <div class="Page-body">
         <div class="container-xl">
-          <div class="row" style="margin-top:45px;">
-            <div class="col-2 card align-items-center" style="margin-right:80px;">
+          <div class="row justify-content-evenly" style="margin-top:45px;">
+            <div class="col-2 card align-items-center" style="margin-right:80px; margin-top:118px;">
               <div class="subheader mb-1" style="margin-top:10px;">카테고리</div>
               <form class="list-group list-group-transparent mb-4">
                 <a class="btn list-group-item list-group-item-action align-items-center" th:href="@{|/DomAuction/list?input=|}">
@@ -127,19 +127,20 @@
                 </a>
               </form>
             </div>
-            <div class="col-9 justify-content-end">
-              <div class="row margin_top align-items-center" style="margin-bottom:50px;">
-                <div class="col-2">
-  
-                </div>
+            <div class="col-9">
+              <div class="row margin_top justify-content-evenly" style="margin-bottom:50px;">
+                <div class="col-1"></div>
+
                 <!-- 검색창 시작 -->
-                <div class="col-8">
+                <div class="col-10">
                   <form method="get" th:action="@{/DomAuction/list}" class="input-group" style="margin-right:50px;">
                     <input name="input" class="form-control me-2 searchInput" style="border-width:3px;" type="text" placeholder="상품검색">
                     <button class="btn" style="border-width:3px;" type="submit">검색</button>
                   </form>
                 </div>
                 <!-- 검색창 끝 -->
+
+                <div class="col-1"></div>
               </div>
               <div class="row card margin-top align-items-center">
                 <div id="table-default" class="table-responsive">
@@ -186,19 +187,19 @@
                   </ul>
                 </div>
               </div>
-              <div class="row margin_top align-items-center">
+              <!--<div class="row margin_top align-items-center">
                 <div class="col-2">
   
                 </div>
-                <!-- 검색창 시작 -->
+
                 <div class="col-8">
                   <form method="get" th:action="@{/DomAuction/list}" class="input-group" style="margin-right:50px;">
                     <input name="input" class="form-control me-2 searchInput" style="border-width:3px;" type="text" placeholder="상품검색">
                     <button class="btn" style="border-width:3px;" type="submit">검색</button>
                   </form>
                 </div>
-                <!-- 검색창 끝 -->
-              </div>
+
+              </div>-->
             </div>
           </div>
         </div>
