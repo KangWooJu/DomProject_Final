@@ -2,6 +2,8 @@ package ac.kr.dankook.ace.dom_t1.controller;
 
 import jakarta.validation.Valid;
 
+import java.security.Principal;
+
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import ac.kr.dankook.ace.dom_t1.Model.Entity.SiteuserEntity;
 import ac.kr.dankook.ace.dom_t1.Model.Service.SiteuserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/user")
 public class SiteuserController {
     private final SiteuserService siteuserService;
+
     @GetMapping("main")
     public String getMethodName() {
         return "dom_main";
@@ -63,7 +67,13 @@ public class SiteuserController {
         return "signup_form";
     }
     return "redirect:/user/login";
-}
+    }
 
-    
+    @GetMapping("/mypage")
+    public String mypage(Model model, Principal principal)
+    {
+        SiteuserEntity siteuserEntity = this.siteuserService.getUser(principal.getName());
+        model.addAttribute("siteuserEntity", siteuserEntity);
+        return "MyPage";
+    }
 }

@@ -55,6 +55,19 @@
             height:auto;
             width:50%;
         }
+      .btn-like{
+        background-color:#ffffff;
+        border-width:3px;
+        border-color:rgba(13,45,132,1);
+      }
+      .btn-like:hover{
+        background-color:#ffffff;
+        border-color:rgb(255, 59, 232);
+      }
+      .btn-like:active{
+        background-color:#ffffff;
+        border-color: rgb(255, 59, 232);
+      }
     </style>
   </head>
     <body class=" d-flex flex-column">
@@ -107,13 +120,16 @@
                               <div class="col-7">
                                 <p>현재입찰가</p>
                               </div>
+                              <div class="col-1"></div>
                               <div class="col-2">
-                                <button th:href="@{#}" class="btn btn-primary w-300">
-                                  <img th:src="@{/images/heart.png}" style="margin-right:10px; margin-left:10px;">
-                                  <img th:src="@{/images/heart_filled.png}" style="margin-right:10px; margin-left:10px;">
+                                <!-- 좋아요 버튼 -->
+                                <button th:if="${true}" th:href="@{#}" class="btn-like btn btn-primary w-300">
+                                  <img th:src="@{/images/heart.png}" style="margin-right:5px; margin-left:5px;">
+                                </button>
+                                <button th:unless="${true}" th:href="@{#}" class="btn-like btn btn-primary w-300" active>
+                                  <img th:src="@{/images/heart_filled.png}" style="margin-right:5px; margin-left:5px;">
                                 </button>
                               </div>
-                              <div class="col-1"></div>
                               <div class="col-2">
                                 <button th:href="@{#}" class="btn btn-primary">카톡링크</button>
                               </div>
