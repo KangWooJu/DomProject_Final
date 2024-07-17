@@ -124,9 +124,9 @@ public class AuctionRegisterService {
         }; 
     }
 
-    public void command(AuctionRegisterEntity auctionRegisterEntity, SiteuserEntity siteuserEntity){ //7.9 추가 
-        auctionRegisterEntity.getCommand().add(siteuserEntity);
-        this.auctionRegisterRepository.save(auctionRegisterEntity);
+    public void command(AuctionRegisterEntity auctionRegisterEntity, SiteuserEntity siteuserEntity){ // 7.9 추가 : 좋아요 기능
+        auctionRegisterEntity.getCommand().add(siteuserEntity); // entity의 getcommand() 메소드에 좋아요를 누른 사람을 추가 
+        this.auctionRegisterRepository.save(auctionRegisterEntity); // 저장 
     }
 
     
