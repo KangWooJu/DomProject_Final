@@ -11,3 +11,9 @@ KwonJinWoo의 작업 Branch
 - AuctionList.html Category Search 구현
 - Auction_detail 게시글 좋아요 & 카톡링크 버튼배치
 - Auction_detail 댓글 작성자 & 작성시간 배치
+
+[7/17 개발]
+- AuctionMyPage Controller & MyPage.html 구현
+    (MyPage return중 id값 Null error 발생)
+- Auction_detail.html 좋아요 활성화/비활성화 버튼 배치
+    (AuctionListController 추천 request method 적용필요)

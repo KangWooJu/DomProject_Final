@@ -32,6 +32,8 @@ public class AuctionMyPageController {
     private final SiteuserService siteuserService;
 
     // 7.14 수정 
+
+    //PreAuthorize -> username PathVariable 이용
     @PreAuthorize("isAuthenticated()")
     @GetMapping("")
     public String mypagePreprocess(Principal principal, RedirectAttributes redirectAttributes)
