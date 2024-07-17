@@ -35,9 +35,9 @@ public class AuctionRegisterEntity {
     @Column
     private double price;
     
-    private String locationcode;
+    private Integer locationcode;
     
-    private String category; // 카테고리 ( 각 )
+    private String category; // 카테고리 ( 각 ) -> 6/26 수정 필요 
     @Column
     private double cprice;
     @Column
@@ -58,4 +58,8 @@ public class AuctionRegisterEntity {
    
     @Column
     private String highestuser;
+
+    @ManyToMany
+    Set<SiteuserEntity> command; // 7/9 추가 : 글 추천자 기능을 위해 Entity에 Set자료형의 GoodVoter 필드 추가 -> 질문 추천 기능 관련 HTML 추가 필수 
+
 } 

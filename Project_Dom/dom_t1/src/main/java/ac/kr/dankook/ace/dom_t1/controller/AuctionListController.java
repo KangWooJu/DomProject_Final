@@ -49,7 +49,7 @@ public class AuctionListController {
         model.addAttribute("paging", paging); // 페이징 모델 Add
         model.addAttribute("input",input); // input 모델 Add
         
-        return "AuctionList"; 
+        return "AuctionList";
     }
 
     @GetMapping("/DomAuction/list/category") // 6.28 추가 : 카테고리별 리스트 페이지 생성

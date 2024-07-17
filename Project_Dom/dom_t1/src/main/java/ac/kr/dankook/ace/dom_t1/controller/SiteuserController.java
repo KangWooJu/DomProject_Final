@@ -27,6 +27,10 @@ public class SiteuserController {
 
     @GetMapping("main")
     public String getMethodName() {
+        // MyPage Request를 위한 {username} Pathvariable 필요...
+        // PreAuthorize를 대체하기 위한 로직 필요...
+        /*SiteuserEntity siteuserEntity = this.siteuserService.getUser(principal.getName());
+        model.addAttribute("siteuserEntity", siteuserEntity);*/
         return "dom_main";
     }
     
@@ -69,11 +73,11 @@ public class SiteuserController {
     return "redirect:/user/login";
     }
 
-    @GetMapping("/mypage")
+    /*@GetMapping("/mypage")
     public String mypage(Model model, Principal principal)
     {
         SiteuserEntity siteuserEntity = this.siteuserService.getUser(principal.getName());
         model.addAttribute("siteuserEntity", siteuserEntity);
         return "MyPage";
-    }
+    }*/
 }

@@ -37,7 +37,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
             <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/user/login}" style="color:rgba(13, 45, 132, 1);">로그아웃</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" sec:authorize="isAuthenticated()" href="#" style="color:rgba(13, 45, 132, 1);">마이페이지</a>
+            <a  class="nav-link" sec:authorize="isAuthenticated()" href="/mypage" style="color:rgba(13, 45, 132, 1);">마이페이지</a>
           </li>
       </ul>
   </div>

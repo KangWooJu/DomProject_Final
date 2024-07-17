@@ -11,8 +11,6 @@ import ac.kr.dankook.ace.dom_t1.Model.repository.AuctionRegisterRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
-import org.aspectj.weaver.patterns.TypePatternQuestions.Question;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -26,13 +24,17 @@ import jakarta.persistence.criteria.Root;
 
 @RequiredArgsConstructor
 @Service
-public class AuctionRegisterService {
+public class AuctionRegisterService_saved{
 
-    @Autowired
-    private final AuctionRegisterRepository auctionRegisterRepository;
+    private final AuctionRegisterRepository auctionregisterRepository;
+
+    public List<AuctionRegisterEntity> getAuctionRequestEntityList(){ // 게시글 목록 리스트를 조회하여 리턴하는 getList 메서드 
+        return this.auctionregisterRepository.findAll(); // Repository의 findAll 메소드 실행 -> Paging 과 연결 
+    }
+
 
     public AuctionRegisterEntity getAuctionRegisterEntity(int id) {  // 데이터가 존재하는지 확인하는 메소드 
-        Optional<AuctionRegisterEntity> auctionRegisterEntity = this.auctionRegisterRepository.findById(id); // username으로 등록데이터를 조회 , 예외처리로 등록 물품 미확인 메시지 전달
+        Optional<AuctionRegisterEntity> auctionRegisterEntity = this.auctionregisterRepository.findById(id); // username으로 등록데이터를 조회 , 예외처리로 등록 물품 미확인 메시지 전달
         if (auctionRegisterEntity.isPresent()) {
             return auctionRegisterEntity.get(); // Entity의 get 메소드 실행 -> username 데이터 받아오기 
         } else {
@@ -54,7 +56,7 @@ public class AuctionRegisterService {
         are.setEndtime(et);
         are.setCategory(c);
         are.setHighestuser(author.getUsername());
-        this.auctionRegisterRepository.save(are); // 각종 필요한 정보들을 set 한 후에 리포지토리( AuctionRegisterRepository ) 로 넘김 , 그후 CRUD 중 U 시행 
+        this.auctionregisterRepository.save(are); // 각종 필요한 정보들을 set 한 후에 리포지토리( AuctionRegisterRepository ) 로 넘김 , 그후 CRUD 중 U 시행 
     } //여기에서 사진 관련한 데이터를 추가해야할 경우 넣어주시면 됩니다 
 
     public Page<AuctionRegisterEntity> getList(int page, String input) { // 페이징을 만드는 모듈 
@@ -62,13 +64,8 @@ public class AuctionRegisterService {
         sorts.add(Sort.Order.desc("createDate")); // 리스트 넣기 
         Pageable pageable = PageRequest.of(page, 10,Sort.by(sorts)); // 조회할 페이지의 개수 및 최신순으로 정렬 
         Specification<AuctionRegisterEntity> specification = search(input); // specfication 객체에서 Input 을 파라미터로 Search 모듈 실행 
-        return this.auctionRegisterRepository.findAll(specification,pageable); // 조회한 내용 Or 조회전의 페이징 내용을 매게로 findAll 모듈 실행 
+        return this.auctionregisterRepository.findAll(specification,pageable); // 조회한 내용 Or 조회전의 페이징 내용을 매게로 findAll 모듈 실행 
     }
-
-    public Page<AuctionRegisterEntity> getListMine(String username,int page,int size) {
-        Pageable pageable = PageRequest.of(page, 10);
-        return this.auctionRegisterRepository.findByAuthorUsername(username,pageable);
-    } // 7.14 수정 -> username을 통해서 본인의 개시글을 찾는 리포지토리 명령어를 통해서 페이지 객체 반환 
 
     private Specification<AuctionRegisterEntity> searchByCategory(String category) {
         return (Root<AuctionRegisterEntity> q, CriteriaQuery<?> query, CriteriaBuilder cb) -> {
@@ -86,7 +83,7 @@ public class AuctionRegisterService {
         sorts.add(Sort.Order.desc("createDate"));
         Pageable pageable = PageRequest.of(page, 10, Sort.by(sorts));
         Specification<AuctionRegisterEntity> specification = searchByCategory(category);
-        return this.auctionRegisterRepository.findAll(specification, pageable);
+        return this.auctionregisterRepository.findAll(specification, pageable);
     } // 6.28 추가 : searchByCategory를 이용하여 카테고리 별 리스트 페이징 생성 
 
     public void modify(AuctionRegisterEntity auctionRegisterEntity,String title,String content,int cprice)
@@ -95,17 +92,17 @@ public class AuctionRegisterService {
         auctionRegisterEntity.setContent(content); // 글 내용 Set 하기 
         auctionRegisterEntity.setModifyDate(LocalDateTime.now()); // 수정 시간 Set 하기 
         auctionRegisterEntity.setCprice(cprice);
-        this.auctionRegisterRepository.save(auctionRegisterEntity); // 다시 Entity에 Save 하기 
+        this.auctionregisterRepository.save(auctionRegisterEntity); // 다시 Entity에 Save 하기 
     }
     public void changehighest(AuctionRegisterEntity auctionRegisterEntity,Integer integer,String highestuser)
     {
         auctionRegisterEntity.setHighestprice(integer);
         auctionRegisterEntity.setHighestuser(highestuser);
-        this.auctionRegisterRepository.save(auctionRegisterEntity); // 다시 Entity에 Save 하기 
+        this.auctionregisterRepository.save(auctionRegisterEntity); // 다시 Entity에 Save 하기 
     }
 
     public void delete(AuctionRegisterEntity auctionRegisterEntity){ // 등록글 삭제 기능 
-        this.auctionRegisterRepository.delete(auctionRegisterEntity);
+        this.auctionregisterRepository.delete(auctionRegisterEntity);
     }
 
     
@@ -124,10 +121,6 @@ public class AuctionRegisterService {
         }; 
     }
 
-    public void command(AuctionRegisterEntity auctionRegisterEntity, SiteuserEntity siteuserEntity){ // 7.9 추가 : 좋아요 기능
-        auctionRegisterEntity.getCommand().add(siteuserEntity); // entity의 getcommand() 메소드에 좋아요를 누른 사람을 추가 
-        this.auctionRegisterRepository.save(auctionRegisterEntity); // 저장 
-    }
-
     
+
 }

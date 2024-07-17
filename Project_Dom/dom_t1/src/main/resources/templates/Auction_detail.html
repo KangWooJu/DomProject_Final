@@ -59,6 +59,9 @@
         background-color:#ffffff;
         border-width:3px;
         border-color:rgba(13,45,132,1);
+        height: 2.5rem;
+        width: 3rem;
+        padding: 0rem 0rem;
       }
       .btn-like:hover{
         background-color:#ffffff;
@@ -124,10 +127,10 @@
                               <div class="col-2">
                                 <!-- 좋아요 버튼 -->
                                 <button th:if="${true}" th:href="@{#}" class="btn-like btn btn-primary w-300">
-                                  <img th:src="@{/images/heart.png}" style="margin-right:5px; margin-left:5px;">
+                                  <img th:src="@{/images/heart.png}" style="height:10px; width:10px;">
                                 </button>
                                 <button th:unless="${true}" th:href="@{#}" class="btn-like btn btn-primary w-300" active>
-                                  <img th:src="@{/images/heart_filled.png}" style="margin-right:5px; margin-left:5px;">
+                                  <img th:src="@{/images/heart_filled.png}">
                                 </button>
                               </div>
                               <div class="col-2">
