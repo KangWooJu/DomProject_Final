@@ -166,6 +166,15 @@ public class AuctionListController {
         auctionBidService.createAuctionBid(auctionBidForm.getId(), bidder, auctionBidForm.getBidAmount());
         return String.format("redirect:/DomAuction/detail/%s", auctionBidForm.getId());
     }
-        
-    
+
+    @PreAuthorize("isAuthenticated()") // 추천 기능 추가 7.11
+    @GetMapping("/command/{id}")
+    public String auctionCommand(Principal principal,@PathVariable("id") Integer id){
+
+        AuctionRegisterEntity auctionRegisterEntity = this.auctionRegisterService.getAuctionRegisterEntity(id);
+        SiteuserEntity siteuserEntity = this.siteuserService.getUser(principal.getName()); 
+        this.auctionRegisterService.command(auctionRegisterEntity,siteuserEntity);
+        return String.format("rediredct:/DomAuction/detial/%s",id);
+    }
+
 }
