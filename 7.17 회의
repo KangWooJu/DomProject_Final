@@ -1,0 +1,15 @@
+[ 개발예정 ]
+- MyPage.html 변경사항
+  - 통계치 구현 스킵
+  - 좋아요 표시한 거래 구현 스킵
+  - 회원 정보 나열 (DomUser부분 삭제, 모두 input style) + 정보수정 버튼
+  - 나의 거래글
+- Progress Page 변경사항
+  - ERD + 추가설명
+  - GitHub Repository Link 추가
+  - GitHub MainBranch ReadMe 보강
+- MyPage 구현
+  : Controller & Service Layer 수정 & 디버깅 -> MyPage 띄우기
+- 좋아요 기능 구현
+  : AuctionListController 기능적용하기
+- SpringSecurity 6버전 업
