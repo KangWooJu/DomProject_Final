@@ -27,8 +27,8 @@ public class SiteuserService {
         return user;
     }
 
-    public SiteuserEntity getUser(String id) { // 사용자 찾아오기 모듈
-        Optional<SiteuserEntity> siteUser = this.siteuserRepository.findByusername(id); // 사용자의 id를 통해서 데이터 찾기 -> 없을 경우 예외처리 
+    public SiteuserEntity getUser(String username) { // 사용자 찾아오기 모듈
+        Optional<SiteuserEntity> siteUser = this.siteuserRepository.findByusername(username); // 사용자의 username을 통해서 데이터 찾기 -> 없을 경우 예외처리 
         if (siteUser.isPresent()) {
             return siteUser.get();
         } else {

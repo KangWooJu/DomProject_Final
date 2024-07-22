@@ -3,6 +3,8 @@ package ac.kr.dankook.ace.dom_t1.controller;
 import java.io.File;
 import java.io.IOException;
 import java.security.Principal;
+import java.time.LocalDate;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -49,7 +51,7 @@ public class AuctionListController {
         model.addAttribute("paging", paging); // 페이징 모델 Add
         model.addAttribute("input",input); // input 모델 Add
         
-        return "AuctionList";
+        return "AuctionList"; 
     }
 
     @GetMapping("/DomAuction/list/category") // 6.28 추가 : 카테고리별 리스트 페이지 생성
@@ -71,8 +73,11 @@ public class AuctionListController {
         
         String[] links = auctionRegisterEntity.getLink().split(",");
         System.out.println(links[0]);
+        LocalDate ds = auctionRegisterEntity.getEndtime();
+        boolean as = ds.isAfter(LocalDate.now());
         model.addAttribute("bidform", bidform);
         model.addAttribute("links", links);
+        model.addAttribute("yes", as);
         return "Auction_detail";
     }
 
@@ -166,6 +171,15 @@ public class AuctionListController {
         auctionBidService.createAuctionBid(auctionBidForm.getId(), bidder, auctionBidForm.getBidAmount());
         return String.format("redirect:/DomAuction/detail/%s", auctionBidForm.getId());
     }
-        
-    
+
+    @PreAuthorize("isAuthenticated()") // 추천 기능 추가 7.11
+    @GetMapping("/command/{id}")
+    public String auctionCommand(Principal principal,@PathVariable("id") Integer id){
+
+        AuctionRegisterEntity auctionRegisterEntity = this.auctionRegisterService.getAuctionRegisterEntity(id);
+        SiteuserEntity siteuserEntity = this.siteuserService.getUser(principal.getName()); 
+        this.auctionRegisterService.command(auctionRegisterEntity,siteuserEntity);
+        return String.format("rediredct:/DomAuction/detial/%s",id);
+    }
+
 }

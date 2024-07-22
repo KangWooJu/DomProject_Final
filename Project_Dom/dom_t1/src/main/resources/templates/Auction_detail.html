@@ -168,15 +168,18 @@
                 
                           <form th:action = "@{/DomAuction/bid}" method="post" th:object = "${bidform}">
                             <div class="row g-4">
-                              <div class="col-9">
+                              <div class="col-9" th:if = "${yes}">
                                 <input type="text" class="form-control" name="bidprice" placeholder="가격(원)" th:field = "${bidform.bidAmount}">
                                 <input type="hidden" name="id" value = "${auctionRegisterEntity.id}" th:field = "${bidform.id}">
                               </div>
-                              <div class="col-3">
+                              <div class="col-3" th:if = "${yes}">
                                 <button type="submit" class="btn btn-primary w-300">입찰하기</button>
                               </div>
+                              <div class="col-3" th:unless = "${yes}">
+                                <button class="btn btn-primary w-300" disabled>입찰 종료됨</button>
+                              </div>
                               <div class="col-12" style="margin-top:25px;">
-                                <a th:href="@{|/delete/${auctionRegisterEntity.id}|}" 
+                                <a th:href="@{|/delete/${auctionRegisterEntity.id}|}"
                                   class="w-5" sec:authorize="isAuthenticated()"
                                   th:text="삭제하기"></a>
                               </div>

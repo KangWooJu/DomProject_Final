@@ -17,3 +17,7 @@ KwonJinWoo의 작업 Branch
     (MyPage return중 id값 Null error 발생)
 - Auction_detail.html 좋아요 활성화/비활성화 버튼 배치
     (AuctionListController 추천 request method 적용필요)
+
+[7/22 개발]
+- MyPage.html 구현 (회원정보/나의판매글)
+- Auction_detail.html 입찰종료기능 구현

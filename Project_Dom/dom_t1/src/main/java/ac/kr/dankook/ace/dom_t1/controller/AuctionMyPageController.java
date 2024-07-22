@@ -45,17 +45,17 @@ public class AuctionMyPageController {
 
     @PreAuthorize("isAuthenticated()")
     @GetMapping("/{username}")
-    public String mypage(Model model, @PathVariable("username") String username,AuctionRegisterForm auctionRegisterForm, @RequestParam(value="page", defaultValue="0") int page, Integer id) {
+    public String mypage(Model model, @PathVariable("username") String username,AuctionRegisterForm auctionRegisterForm, @RequestParam(value="page", defaultValue="0") int page) {
 
-        AuctionRegisterEntity auctionRegisterEntity = this.auctionRegisterService.getAuctionRegisterEntity(id);
-        model.addAttribute("auctionRegisterEntity",auctionRegisterEntity);
-        // 사용자의 기본 정보를 model에 주입
+        SiteuserEntity siteuserEntity = siteuserService.getUser(username);
+        model.addAttribute("siteuserEntity", siteuserEntity);
+        // 사용자의 기본 정보를 model에 주입 (AuctionRegisterEntity -> SiteuserEntity)
         // 누적 판매 및 누적 구매에 관한 논의가 필요해 보임
 
         Page<AuctionRegisterEntity> pagingMine = this.auctionRegisterService.getListMine(username,page,10); // 자신이 등록한 거래글을 보여주는 page객체 
-        model.addAttribute("idonas",pagingMine);
-        model.addAttribute("currentPage",page); // 현재 페이지를 보여준다 
-        model.addAttribute("totalPages",pagingMine.getTotalPages()); // 전체 페이지를 보여준다.
+        model.addAttribute("currentPage", pagingMine);
+        model.addAttribute("nope", page); // 현재 페이지를 보여준다
+        model.addAttribute("totalPages", pagingMine.getTotalPages()); // 전체 페이지를 보여준다.
 
         return "MyPage";
     }
