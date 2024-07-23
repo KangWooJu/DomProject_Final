@@ -66,7 +66,7 @@ public class AuctionListController {
 
     @PreAuthorize("isAuthenticated()")
     @GetMapping(value = "/DomAuction/detail/{id}") // 옥션의 리스트 중 하나를 클릭했을 때 얻을 수 있는 화면 : 상세 페이지 -> HTML 내부에 링크 추가 필요 ( 질문 목록에 링크 추가하기 ): https://wikidocs.net/161302
-    public String detail(Model model, @PathVariable("id") String id , AuctionRequestForm auctionRequestForm,AuctionBidForm bidform) {
+    public String detail(Model model, @PathVariable("id") String id , AuctionRequestForm auctionRequestForm,AuctionBidForm bidform, Principal principal) {
         int ids = Integer.parseInt(id);
         AuctionRegisterEntity auctionRegisterEntity = this.auctionRegisterService.getAuctionRegisterEntity(ids); // 등록Service의 get 메소드 사용 
         model.addAttribute("auctionRegisterEntity",auctionRegisterEntity); // 모델에 넣어주기 
@@ -77,7 +77,12 @@ public class AuctionListController {
         boolean as = ds.isAfter(LocalDate.now());
         model.addAttribute("bidform", bidform);
         model.addAttribute("links", links);
-        model.addAttribute("yes", as);
+        model.addAttribute("bidable", as);
+
+        SiteuserEntity siteuserEntity = this.siteuserService.getUser(principal.getName());
+        Boolean liked = auctionRegisterEntity.getCommand().contains(siteuserEntity);
+        model.addAttribute("liked", liked);
+
         return "Auction_detail";
     }
 
@@ -177,9 +182,19 @@ public class AuctionListController {
     public String auctionCommand(Principal principal,@PathVariable("id") Integer id){
 
         AuctionRegisterEntity auctionRegisterEntity = this.auctionRegisterService.getAuctionRegisterEntity(id);
-        SiteuserEntity siteuserEntity = this.siteuserService.getUser(principal.getName()); 
+        SiteuserEntity siteuserEntity = this.siteuserService.getUser(principal.getName());
         this.auctionRegisterService.command(auctionRegisterEntity,siteuserEntity);
-        return String.format("rediredct:/DomAuction/detial/%s",id);
+        return String.format("redirect:/DomAuction/detail/%s", id);
+    }
+
+    @PreAuthorize("isAuthenticated()") // 추천 삭제기능 추가 7.24
+    @GetMapping("/notcommand/{id}")
+    public String auctionNotCommand(Principal principal,@PathVariable("id") Integer id){
+
+        AuctionRegisterEntity auctionRegisterEntity = this.auctionRegisterService.getAuctionRegisterEntity(id);
+        SiteuserEntity siteuserEntity = this.siteuserService.getUser(principal.getName());
+        this.auctionRegisterService.notcommand(auctionRegisterEntity,siteuserEntity);
+        return String.format("redirect:/DomAuction/detail/%s", id);
     }
 
 }

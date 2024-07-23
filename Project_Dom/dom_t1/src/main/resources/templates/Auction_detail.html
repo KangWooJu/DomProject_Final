@@ -126,11 +126,11 @@
                               <div class="col-1"></div>
                               <div class="col-2">
                                 <!-- 좋아요 버튼 -->
-                                <button th:if="${true}" th:href="@{#}" class="btn-like btn btn-primary w-300">
-                                  <img th:src="@{/images/heart.png}" style="height:10px; width:10px;">
+                                <button th:unless="${liked}" th:onclick="|location.href='@{/command/{id}(id = ${auctionRegisterEntity.id})}'|" class="btn-like btn btn-primary w-300">
+                                  <img th:src="@{/images/heart.png}" style="width:25px; height:25px;">
                                 </button>
-                                <button th:unless="${true}" th:href="@{#}" class="btn-like btn btn-primary w-300" active>
-                                  <img th:src="@{/images/heart_filled.png}">
+                                <button th:if="${liked}" th:onclick="|location.href='@{/notcommand/{id}(id = ${auctionRegisterEntity.id})}'|" class="btn-like btn btn-primary w-300">
+                                  <img th:src="@{/images/heart_filled.png}" style="width:25px; height:25px;">
                                 </button>
                               </div>
                               <div class="col-2">
@@ -168,14 +168,14 @@
                 
                           <form th:action = "@{/DomAuction/bid}" method="post" th:object = "${bidform}">
                             <div class="row g-4">
-                              <div class="col-9" th:if = "${yes}">
+                              <div class="col-9" th:if = "${bidable}">
                                 <input type="text" class="form-control" name="bidprice" placeholder="가격(원)" th:field = "${bidform.bidAmount}">
                                 <input type="hidden" name="id" value = "${auctionRegisterEntity.id}" th:field = "${bidform.id}">
                               </div>
-                              <div class="col-3" th:if = "${yes}">
+                              <div class="col-3" th:if = "${bidable}">
                                 <button type="submit" class="btn btn-primary w-300">입찰하기</button>
                               </div>
-                              <div class="col-3" th:unless = "${yes}">
+                              <div class="col-3" th:unless = "${bidable}">
                                 <button class="btn btn-primary w-300" disabled>입찰 종료됨</button>
                               </div>
                               <div class="col-12" style="margin-top:25px;">

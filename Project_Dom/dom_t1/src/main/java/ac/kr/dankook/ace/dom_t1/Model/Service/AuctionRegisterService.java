@@ -129,5 +129,9 @@ public class AuctionRegisterService {
         this.auctionRegisterRepository.save(auctionRegisterEntity); // 저장 
     }
 
-    
+    public void notcommand(AuctionRegisterEntity auctionRegisterEntity, SiteuserEntity siteuserEntity){ // 7.24 추가 : 좋아요 삭제기능
+        auctionRegisterEntity.getCommand().remove(siteuserEntity);
+        this.auctionRegisterRepository.save(auctionRegisterEntity);
+    }
+
 }
