@@ -21,3 +21,8 @@ KwonJinWoo의 작업 Branch
 [7/22 개발]
 - MyPage.html 구현 (회원정보/나의판매글)
 - Auction_detail.html 입찰종료기능 구현
+
+[7/24 개발]
+- 좋아요 기능 구현
+    Auction_detail.html 좋아요 버튼 활성화/비활성화 가능
+    AuctionRegiserService command() / notcommand() 이용
