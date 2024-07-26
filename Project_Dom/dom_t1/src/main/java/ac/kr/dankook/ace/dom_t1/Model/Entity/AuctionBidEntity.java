@@ -20,7 +20,7 @@ import lombok.Setter;
 @Setter
 public class AuctionBidEntity {
 
-   @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id; // 경매 등록자 ( 5.28 수정 )
 
