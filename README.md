@@ -26,3 +26,8 @@ KwonJinWoo의 작업 Branch
 - 좋아요 기능 구현
     Auction_detail.html 좋아요 버튼 활성화/비활성화 가능
     AuctionRegiserService command() / notcommand() 이용
+
+[7/26 개발]
+- 회원정보 수정기능 구현
+    modifyUser.html 추가
+    AuctionMyPageController userModify(GetMapping/PostMapping) 추가 (usernmae PathVariable로 구현)

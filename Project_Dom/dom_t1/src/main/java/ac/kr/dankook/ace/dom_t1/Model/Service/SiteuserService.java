@@ -27,6 +27,14 @@ public class SiteuserService {
         return user;
     }
 
+    public void modify(String username,String email,String psw,String hint, SiteuserEntity user){
+        user.setUsername(username);
+        user.setHint(hint);
+        user.setEmail(email);
+        user.setPsw(psw);
+        this.siteuserRepository.save(user);
+    }
+
     public SiteuserEntity getUser(String username) { // 사용자 찾아오기 모듈
         Optional<SiteuserEntity> siteUser = this.siteuserRepository.findByusername(username); // 사용자의 username을 통해서 데이터 찾기 -> 없을 경우 예외처리 
         if (siteUser.isPresent()) {

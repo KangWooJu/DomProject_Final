@@ -12,7 +12,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>DOM 회원가입</title>
+    <title>DOM 회원정보수정</title>
     <!-- CSS files -->
     <link th:href="@{/css/tabler.min.css?1692870487}" rel="stylesheet"/>
     <link th:href="@{/css/tabler-flags.min.css?1692870487}" rel="stylesheet"/>
@@ -42,14 +42,14 @@
             <img th:src="@{/images/Logo.PNG}" width="110" height="32" alt="..." class="navbar-brand-image">
           </a>
         </div>
-        <form th:action="@{/user/signup}" th:object="${siteuserCreateForm}" class="card card-md" method="post">
+        <form th:action="@{/mypage/modify/{username}(username = ${username})}" th:object="${siteuserCreateForm}" class="card card-md" method="post">
           <div th:replace="~{form_errors :: formErrorsFragment}"></div>
           <div class="card-body two-column">
             <h2 class="card-title text-center mb-4" style="color: rgba(13,45,132,1); font-weight: 1000;">회원정보 수정하기</h2>
 
             <div class="mb-4">
               <label for="username" class="form-label">사용자ID</label>
-              <input th:field="${siteuserCreateForm.username}" type="text" class="form-control" placeholder="Enter email">
+              <input th:field="${siteuserCreateForm.username}" type="text" class="form-control" th:value="${siteuserCreateForm.username}">
             </div>
             <div class="mb-1">
               <label for="password1" class="form-label">비밀번호</label>
@@ -74,18 +74,18 @@
             </div>
             <div class="mb-4">
               <label class="form-label" style="margin-bottom: 1px">비밀번호 분실힌트 정답</label>
-              <input th:field="${siteuserCreateForm.hint}" type="text" class="form-control" placeholder="answer">
+              <input th:field="${siteuserCreateForm.hint}" type="text" class="form-control" th:value="${siteuserCreateForm.hint}">
             </div>
             <div class="mb-4">
               <label class="form-label">이메일</label>
-              <input th:field="${siteuserCreateForm.email}" type="email" class="form-control" placeholder="Enter email">
+              <input th:field="${siteuserCreateForm.email}" type="email" class="form-control" th:value="${siteuserCreateForm.email}">
             </div>
             <div class="mb-4">
               <label class="form-label">닉네임(활동명)</label>
-              <input th:field="${siteuserCreateForm.nickname}" type="text" class="form-control" placeholder="Nick name">
+              <input th:field="${siteuserCreateForm.nickname}" type="text" class="form-control" th:value="${siteuserCreateForm.nickname}">
             </div>
             <div class="form-footer">
-              <button type="submit" class="btn btn-primary w-100">수정하기</button>
+              <button type="submit" class="btn btn-primary w-100" style="margin-top: 50px;">수정하기</button>
             </div>
           </div>
         </form>
