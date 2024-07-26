@@ -10,7 +10,7 @@
 - 📺 프론트엔드 : KwonJinWoo 
 
 ① 프로토타입 
-- 리포지토리 : 
+- 리포지토리 : https://github.com/KangWooJu/AJ24_Team1
 - 개발 기한 : 3/1 ~ 6/5 
 
 ② 리팩토링 : 6/26 ~ 7/26
