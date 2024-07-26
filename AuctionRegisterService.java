@@ -65,9 +65,9 @@ public class AuctionRegisterService {
         return this.auctionRegisterRepository.findAll(specification,pageable); // 조회한 내용 Or 조회전의 페이징 내용을 매게로 findAll 모듈 실행 
     }
 
-    public Page<AuctionRegisterEntity> getListMine(int id,int page,int size) { // 7.22 수정 : 파라미터의 id 삭제
+    public Page<AuctionRegisterEntity> getListMine(String username,int page,int size) { 
         Pageable pageable = PageRequest.of(page, 10);
-        return this.auctionRegisterRepository.findByAuthorUsername(id,pageable);
+        return this.auctionRegisterRepository.findByAuthorUsername(username,pageable);
     } // 7.14 수정 -> username을 통해서 본인의 개시글을 찾는 리포지토리 명령어를 통해서 페이지 객체 반환 
 
     private Specification<AuctionRegisterEntity> searchByCategory(String category) {

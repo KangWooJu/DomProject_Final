@@ -6,14 +6,17 @@ import org.springframework.stereotype.Service;
 import ac.kr.dankook.ace.dom_t1.Model.Entity.SiteuserEntity;
 import ac.kr.dankook.ace.dom_t1.Model.repository.SiteuserRepository;
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @RequiredArgsConstructor
 @Service
 public class SiteuserService {
 
-    
+    @Autowired
     private final SiteuserRepository siteuserRepository;
+    @Autowired
     private final PasswordEncoder passwordEncoder;
 
     public SiteuserEntity create(String username, String email, String psw, String hint, String nickname) { //  SiteuserRepository를 이용하여 회원 데이터를 생성하는 메서드
@@ -33,6 +36,9 @@ public class SiteuserService {
         user.setHint(hint);
         user.setEmail(email);
         user.setPsw(psw);
+        if (psw != null && !psw.isEmpty()) {
+            user.setPsw(passwordEncoder.encode(psw));
+        }
         this.siteuserRepository.save(user);
     }
 
@@ -44,7 +50,5 @@ public class SiteuserService {
         } else {
             throw new DataNotFoundException("사용자를 찾을 수 없습니다!"); // 예외처리 : 테이블에 id가 없을경우 메시지 보내기 및 DataNotFoundException 실행
         }
-    }
-
-    
+    }   
 }

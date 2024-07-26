@@ -162,19 +162,19 @@ public class AuctionListController {
         if(auctionBidForm.getBidAmount() > auctionRegisterService.getAuctionRegisterEntity(Integer.parseInt(auctionBidForm.getId())).getHighestprice()){
             auctionRegisterService.changehighest(auctionRegisterService.getAuctionRegisterEntity(Integer.parseInt(auctionBidForm.getId())), auctionBidForm.getBidAmount(), principal.getName());
         }
-        SiteuserEntity bidder = siteuserService.getUser(principal.getName());
+        SiteuserEntity bidder = siteuserService.getUser(principal.getName()); // 7.22 수정 -> 논의 필요 
         auctionBidService.createAuctionBid(auctionBidForm.getId(), bidder, auctionBidForm.getBidAmount());
         return String.format("redirect:/DomAuction/detail/%s", auctionBidForm.getId());
     }
 
     @PreAuthorize("isAuthenticated()") // 추천 기능 추가 7.11
-    @GetMapping("/command/{id}")
-    public String auctionCommand(Principal principal,@PathVariable("id") Integer id){
+    @GetMapping("/recommand/{id}")
+    public String auctionRecommand(Principal principal,@PathVariable("id") Integer id){
 
-        AuctionRegisterEntity auctionRegisterEntity = this.auctionRegisterService.getAuctionRegisterEntity(id);
-        SiteuserEntity siteuserEntity = this.siteuserService.getUser(principal.getName()); 
-        this.auctionRegisterService.command(auctionRegisterEntity,siteuserEntity);
+        AuctionRegisterEntity auctionRegisterEntity = this.auctionRegisterService.getAuctionRegisterEntity(id); // 수정 필요 
+
+        SiteuserEntity siteuserEntity = this.siteuserService.getUser(principal.getName());  // 7.22 수정완료 : 서비스의 메소드명 변경 
+        this.auctionRegisterService.recommand(auctionRegisterEntity,siteuserEntity);
         return String.format("rediredct:/DomAuction/detial/%s",id);
     }
-
 }
