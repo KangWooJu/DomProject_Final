@@ -32,6 +32,9 @@ public class SiteuserService {
         user.setHint(hint);
         user.setEmail(email);
         user.setPsw(psw);
+        if (psw != null && !psw.isEmpty()) {
+            user.setPsw(passwordEncoder.encode(psw));
+        }
         this.siteuserRepository.save(user);
     }
 
