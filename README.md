@@ -8,6 +8,7 @@
 
 - 📡 백엔드 : Kangwooju,exvcg 
 - 📺 프론트엔드 : KwonJinWoo 
+---
 
 ① 프로토타입 
 - 리포지토리 : https://github.com/KangWooJu/AJ24_Team1
