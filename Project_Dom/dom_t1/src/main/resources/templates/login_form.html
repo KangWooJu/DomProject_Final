@@ -42,17 +42,17 @@
           <div class="card-body">
             <h2 class="h2 text-center mb-4"></h2>
             <form th:action="@{/user/login}" method="post" autocomplete="off" novalidate>
-              <h2 class="card-title text-center mb-6" style="color: rgba(13,45,132,1)">Sign in</h2>
+              <h2 class="card-title text-center mb-6" style="color: rgba(13,45,132,1)">로그인</h2>
               <div class="mb-3">
-                <label class="form-label">ID</label>
+                <label class="form-label">아이디(사용자명)</label>
                 <input  type="text" class="form-control" name ="username" placeholder="your ID" autocomplete="off">
               </div>
               <div class="mb-7">
                 <label class="form-label">
-                  Password
-                  <span class="form-label-description">
+                  비밀번호
+                  <!--<span class="form-label-description">
                     <a href="./forgot-password.html">I forgot password</a>
-                  </span>
+                  </span>-->
                 </label>
                 <div class="input-group input-group-flat">
                   <input type="password" name ="password" class="form-control"  placeholder="Your password"  autocomplete="off">
