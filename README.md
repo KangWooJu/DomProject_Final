@@ -1,4 +1,3 @@
-![header](https://capsule-render.vercel.app/api?type=slice&color=auto&height=300&section=header&text=capsule%20render&fontSize=90)
 
 <h1>단국대학교 컴퓨터공학과 학생들의 웹페이지 프로젝트 - Dom Auction</h1>
 
