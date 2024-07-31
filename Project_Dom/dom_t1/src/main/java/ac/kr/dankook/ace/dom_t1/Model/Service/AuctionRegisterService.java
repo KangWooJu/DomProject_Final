@@ -67,6 +67,13 @@ public class AuctionRegisterService {
         Specification<AuctionRegisterEntity> specification = search(input); // specfication 객체에서 Input 을 파라미터로 Search 모듈 실행 
         return this.auctionregisterRepository.findAll(specification,pageable); // 조회한 내용 Or 조회전의 페이징 내용을 매게로 findAll 모듈 실행 
     }
+    public Page<AuctionRegisterEntity> getList2(int page, String input) { // 페이징을 만드는 모듈 
+        List<Sort.Order> sorts = new ArrayList<>();
+        sorts.add(Sort.Order.desc("createDate")); // 리스트 넣기 
+        Pageable pageable = PageRequest.of(page, 10,Sort.by(sorts)); // 조회할 페이지의 개수 및 최신순으로 정렬 
+        Specification<AuctionRegisterEntity> specification = search2(input); // specfication 객체에서 Input 을 파라미터로 Search 모듈 실행 
+        return this.auctionregisterRepository.findAll(specification,pageable); // 조회한 내용 Or 조회전의 페이징 내용을 매게로 findAll 모듈 실행 
+    }
 
     public void modify(AuctionRegisterEntity auctionRegisterEntity,String title,String content,int cprice)
     {
@@ -99,6 +106,18 @@ public class AuctionRegisterService {
                 return cb.or(cb.like(q.get("title"), "%" + input + "%"), // 제목 
                         cb.like(q.get("content"), "%" + input + "%"),      // 내용 
                         cb.like(u1.get("username"), "%" + input + "%"));   // 답변 작성자 
+            }// 검색어 ( input ) 이 존재하는지 Like 키워드를 통해 검색.
+        }; 
+    }
+    private Specification<AuctionRegisterEntity> search2(String input) { // 검색기능 추가 : input을 입력받아 쿼리의 조인문과 where 문을 specification 객체로 return 
+        return new Specification<>() { // input : 검색어 
+            private static final long serialVersionUID = 1L;
+            @Override
+            public Predicate toPredicate(Root<AuctionRegisterEntity> q, CriteriaQuery<?> query, CriteriaBuilder cb) { // q: Criteria API의 Root 자료형으로 기준이 되는 AuctionRegisterEntity객체 
+                query.distinct(true);  // 중복을 제거 
+                Join<AuctionRegisterEntity, SiteuserEntity> u1 = q.join("author", JoinType.LEFT); // 질문 작성자를 검색하기 위해 두개의 entity를 아우터 조인
+
+                return cb.or(cb.like(q.get("category"), "%" + input + "%")); 
             }// 검색어 ( input ) 이 존재하는지 Like 키워드를 통해 검색.
         }; 
     }

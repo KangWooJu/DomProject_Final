@@ -3,6 +3,9 @@ package ac.kr.dankook.ace.dom_t1.controller;
 import java.io.File;
 import java.io.IOException;
 import java.security.Principal;
+import java.time.LocalDate;
+import java.util.Date;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -61,8 +64,11 @@ public class AuctionListController {
         
         String[] links = auctionRegisterEntity.getLink().split(",");
         System.out.println(links[0]);
+        LocalDate ds = auctionRegisterEntity.getEndtime();
+        boolean as = ds.isAfter(LocalDate.now());
         model.addAttribute("bidform", bidform);
         model.addAttribute("links", links);
+        model.addAttribute("yes", as);
         return "Auction_detail";
     }
 
@@ -146,7 +152,7 @@ public class AuctionListController {
     @PreAuthorize("isAuthenticated()")
     @PostMapping("/DomAuction/bid")
     public String placeBid(@Valid @ModelAttribute("order") AuctionBidForm auctionBidForm, BindingResult bindingResult, Principal principal) {
-        if (bindingResult.hasErrors()) {
+        if (bindingResult.hasErrors()||auctionRegisterService.getAuctionRegisterEntity(Integer.parseInt(auctionBidForm.getId())).getEndtime().isBefore(LocalDate.now())) {
             return String.format("redirect:/DomAuction/detail/%s", auctionBidForm.getId());
         }
         if(auctionBidForm.getBidAmount() > auctionRegisterService.getAuctionRegisterEntity(Integer.parseInt(auctionBidForm.getId())).getHighestprice()){
@@ -156,5 +162,17 @@ public class AuctionListController {
         auctionBidService.createAuctionBid(auctionBidForm.getId(), bidder, auctionBidForm.getBidAmount());
         return String.format("redirect:/DomAuction/detail/%s", auctionBidForm.getId());
     }
+    @GetMapping("/DomAuction/category/{input}") // 옥션의 리스트를 보여주는 메소드 
+    public String clist(Model model, @RequestParam(value="page", defaultValue="0") int page, @PathVariable("input") String input) {
+        Page<AuctionRegisterEntity> paging = this.auctionRegisterService.getList2(page,input); // 페이지,input(검색기능)을 받아온 후에 모델에 넘겨주기
+        model.addAttribute("paging", paging); // 페이징 모델 Add
+        model.addAttribute("input",input); // input 모델 Add
         
+        return "AuctionList"; 
+    }
+    @GetMapping("/DomAuction/prg") // 옥션의 리스트를 보여주는 메소드 
+    public String pr(Model model) {
+        
+        return "prg"; 
+    }  
 }

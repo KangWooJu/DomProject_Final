@@ -29,7 +29,7 @@ public class SecurityConfig {
                     ) // https://wikidocs.net/162150 <- 참고
             .formLogin((formLogin) -> formLogin
                 .loginPage("/user/login") // 로그인 성공시에 이동할 페이지의 루트 설정 
-                .defaultSuccessUrl("/user/main"))
+                .defaultSuccessUrl("/user/mainlog"))
             // formLogin 메서드를 통해 시프링 시큐리티의 로그인 설정을 추가
 
             .logout((logout) -> logout //로그아웃 기능 구현 -> 
