@@ -96,6 +96,7 @@ public class AuctionMyPageController {
 
         this.siteuserService.modify(siteuserCreateForm.getUsername(),siteuserCreateForm.getEmail(),siteuserCreateForm.getPsw_check1(),siteuserCreateForm.getHint(),siteuserEntity);
         return String.format("redirect:/mypage/%s", username); // siteuserService의 modify 메소드 사용 -> 서비스 파일 참고 
+        // getUsername() 불필요 -> 우주님 수정예정
     }
 
 }
