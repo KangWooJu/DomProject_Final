@@ -170,5 +170,9 @@ public class AuctionListController {
         
         return "AuctionList"; 
     }
+    @GetMapping("/DomAuction/prg") // 옥션의 리스트를 보여주는 메소드 
+    public String pr(Model model) {
         
+        return "prg"; 
+    }  
 }
