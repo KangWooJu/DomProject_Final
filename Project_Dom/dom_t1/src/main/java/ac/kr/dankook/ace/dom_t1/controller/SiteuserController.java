@@ -62,7 +62,7 @@ public class SiteuserController {
         siteuserService.create(siteuserCreateForm.getUsername(), 
                 siteuserCreateForm.getEmail(), siteuserCreateForm.getPsw_check1(),siteuserCreateForm.getHint(),siteuserCreateForm.getNickname());
     }catch(DataIntegrityViolationException e) { // 사용자의 ID 또는 이메일 주소가 이미 존재할 경우에 예외가 발생하도록 하여 " 이미 등록된 사용자 입니다." 메시지가 나오도록 표시
-        e.printStackTrace(); 
+        e.printStackTrace();
         bindingResult.reject("signupFailed", "이미 등록된 사용자입니다.");
         return "signup_form";
     }catch(Exception e) {
@@ -70,7 +70,7 @@ public class SiteuserController {
         bindingResult.reject("signupFailed", e.getMessage()); // 오류에 대한 메시지를 보내도록함 
         return "signup_form";
     }
-    return "redirect:/user/login";
+        return "redirect:/user/login";
     }
 
     /*@GetMapping("/mypage")
