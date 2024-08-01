@@ -80,4 +80,10 @@ public class SiteuserController {
         model.addAttribute("siteuserEntity", siteuserEntity);
         return "MyPage";
     }*/
+
+    @GetMapping("/project_info")
+    public String project_info()
+    {
+        return "prg";
+    }
 }
