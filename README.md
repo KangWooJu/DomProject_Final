@@ -27,12 +27,16 @@
 |백엔드|백엔드|프론트엔드|
 
 
-<br>
+<br><br>
+
 #### ① 프로토타입 
 - 리포지토리 : https://github.com/KangWooJu/AJ24_Team1
 - 개발 기한 : 3/1 ~ 6/5 
 
+<br><br>
+
 #### ② 리팩토링 기간 : 6/26 ~ 7/26
+
 
 < 맴버별 리펙토링 이슈 정리 >
 강우주 : https://github.com/KangWooJu/DomProject_Final/tree/Kangwooju
