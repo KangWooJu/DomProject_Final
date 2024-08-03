@@ -17,7 +17,7 @@
 
 ## ⓪ 개발 환경 
 
-#### < 기술 스택 ><br><br>
+#### < 기술 스택 ><br>
 <img src="https://img.shields.io/badge/Spring-ABF200?style=flat-square&logo=spring&logoColor=white" />
 <img src="https://img.shields.io/badge/mysql-00D8FF?style=flat-square&logo=mysql&logoColor=white" />
 <img src="https://img.shields.io/badge/css-0054FF?style=flat-square&logo=css&logoColor=white" />
@@ -43,7 +43,7 @@ FrameWork : Spring/Spring Boot , BootStrap
 ## ② 리팩토링 기간 : 6/26 ~ 7/26
 
 
-< 맴버별 리펙토링 이슈 정리 ><br>
+< 맴버별 리펙토링 이슈 정리 ><br><br>
 강우주 : https://github.com/KangWooJu/DomProject_Final/tree/Kangwooju <br>
 강민혁 : https://github.com/KangWooJu/DomProject_Final/tree/master <br>
 권진우 : https://github.com/KangWooJu/DomProject_Final/tree/KwonJinWoo
