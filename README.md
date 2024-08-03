@@ -12,7 +12,7 @@
 ---
 #### ⓪ 개발 환경 및 역할 분담
 
-< 기술 스택 >
+< 기술 스택 ><br>
 <img src="https://img.shields.io/badge/Spring-ABF200?style=flat-square&logo=spring&logoColor=white" />
 <img src="https://img.shields.io/badge/mysql-00D8FF?style=flat-square&logo=mysql&logoColor=white" />
 <img src="https://img.shields.io/badge/css-0054FF?style=flat-square&logo=css&logoColor=white" />
