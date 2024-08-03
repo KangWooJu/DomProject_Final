@@ -15,7 +15,7 @@
 ---
 <br>
 
-#### ⓪ 개발 환경 
+## ⓪ 개발 환경 
 
 < 기술 스택 ><br><br>
 <img src="https://img.shields.io/badge/Spring-ABF200?style=flat-square&logo=spring&logoColor=white" />
@@ -24,23 +24,23 @@
 <img src="https://img.shields.io/badge/html-FF5E00?style=flat-square&logo=html&logoColor=white" />
 <img src="https://img.shields.io/badge/javascript-FFE400?style=flat-square&logo=javascript&logoColor=white" />
 
-## < 개발 환경 >
+#### < 개발 환경 >
 
-IDE/Editor : Visual Studio Code 2
-OS : MacOS 14.5 sonoma , Windows 11
-DataBase : Mysql
-Language : java 
+IDE/Editor : Visual Studio Code 2<br>
+OS : MacOS 14.5 sonoma , Windows 11<br>
+DataBase : Mysql<br>
+Language : java<br>
 FrameWork : Spring/Spring Boot , BootStrap 
 
 <br><br>
 
-#### ① 프로토타입 
+## ① 프로토타입 
 - 리포지토리 : https://github.com/KangWooJu/AJ24_Team1
 - 개발 기한 : 3/1 ~ 6/5 
 
 <br><br>
 
-#### ② 리팩토링 기간 : 6/26 ~ 7/26
+## ② 리팩토링 기간 : 6/26 ~ 7/26
 
 
 < 맴버별 리펙토링 이슈 정리 >
@@ -50,7 +50,7 @@ FrameWork : Spring/Spring Boot , BootStrap
 
 <br><br>
 
-#### ③ 최종 구현 사항
+## ③ 최종 구현 사항
 
 (1) 회원 가입 및 로그인/로그아웃 구현
 : Spring Security5의 CSRF 토큰을 통한 회원 가입 구현 및 로그인 / 로그아웃 구현을 통해 
