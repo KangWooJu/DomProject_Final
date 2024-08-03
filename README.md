@@ -32,7 +32,7 @@ DataBase : Mysql<br>
 Language : java<br>
 FrameWork : Spring/Spring Boot , BootStrap 
 
-<br><br>
+<br>
 
 ## ① 프로토타입 
 - 리포지토리 : https://github.com/KangWooJu/AJ24_Team1
