@@ -6,13 +6,16 @@
   오픈 마켓을 지향합니다. 
   
 
+|<img src="https://github.com/KangWooJu.png" width="80">|<img src="https://github.com/exvcg.png" width="80">|<img src="https://github.com/Kw-jinwoo.png" width="80">|
+|:---:|:---:|:---:|
+|[](https://github.com/ImInnocent)|[](https://github.com/exvcg)|[](https://github.com/Kw-jinwoo)|
+|강우주|강민혁|권진우|
+|백엔드|백엔드|프론트엔드|
 
-- 📡 백엔드 : Kangwooju,exvcg 
-- 📺 프론트엔드 : KwonJinWoo 
 ---
 <br>
 
-#### ⓪ 개발 환경 및 역할 분담
+#### ⓪ 개발 환경 
 
 < 기술 스택 ><br><br>
 <img src="https://img.shields.io/badge/Spring-ABF200?style=flat-square&logo=spring&logoColor=white" />
@@ -21,13 +24,13 @@
 <img src="https://img.shields.io/badge/html-FF5E00?style=flat-square&logo=html&logoColor=white" />
 <img src="https://img.shields.io/badge/javascript-FFE400?style=flat-square&logo=javascript&logoColor=white" />
 
-< 개발진 ><br>
-|<img src="https://github.com/KangWooJu.png" width="80">|<img src="https://github.com/exvcg.png" width="80">|<img src="https://github.com/Kw-jinwoo.png" width="80">|
-|:---:|:---:|:---:|
-|[](https://github.com/ImInnocent)|[](https://github.com/exvcg)|[](https://github.com/Kw-jinwoo)|
-|강우주|강민혁|권진우|
-|백엔드|백엔드|프론트엔드|
+## < 개발 환경 >
 
+IDE/Editor : Visual Studio Code 2
+OS : MacOS 14.5 sonoma , Windows 11
+DataBase : Mysql
+Language : java 
+FrameWork : Spring/Spring Boot , BootStrap 
 
 <br><br>
 
