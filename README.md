@@ -21,8 +21,8 @@
 로그인 로그아웃 헤더는 시프링 시큐리티5에서는 작동X 임의로 로그인 로그아웃 페이지를 따로만듬/입찰기간이 지난 물건에는 입찰하기 버튼이 안나오게함
 
 
-|<img src="https://github.com/KangWooJu.png" width="80">|<img src="https://github.com/~~~.png" width="80">|
-|:---:|:---:|
-|[](https://github.com/ImInnocent)|[](https://github.com/KangWooJu)|
+|<img src="https://github.com/KangWooJu.png" width="80">|<img src="https://github.com/~~~.png" width="80">|<img src="https://github.com/~~~.png" width="80">|
+|:---:|:---:|:---:|
+|[](https://github.com/ImInnocent)|[](https://github.com/KangWooJu)|[](https://github.com/KangWooJu)|
 |강우주|강민혁|권진우|
 |백엔드|백엔드|프론트엔드|
