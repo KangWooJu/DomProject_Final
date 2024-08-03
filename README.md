@@ -10,10 +10,10 @@
 - 📡 백엔드 : Kangwooju,exvcg 
 - 📺 프론트엔드 : KwonJinWoo 
 ---
-⓪ 개발 환경 및 역할 분담
+####⓪ 개발 환경 및 역할 분담
 
 
-<img src="https://img.shields.io/badge/React-41BADB?style=flat-square&logo=react&logoColor=white" />
+<img src="https://img.shields.io/badge/spring-41BADB?style=flat-square&logo=spring&logoColor=white" />
 
 |<img src="https://github.com/KangWooJu.png" width="80">|<img src="https://github.com/exvcg.png" width="80">|<img src="https://github.com/Kw-jinwoo.png" width="80">|
 |:---:|:---:|:---:|
@@ -21,18 +21,18 @@
 |강우주|강민혁|권진우|
 |백엔드|백엔드|프론트엔드|
 
-① 프로토타입 
+####① 프로토타입 
 - 리포지토리 : https://github.com/KangWooJu/AJ24_Team1
 - 개발 기한 : 3/1 ~ 6/5 
 
-② 리팩토링 기간 : 6/26 ~ 7/26
+####② 리팩토링 기간 : 6/26 ~ 7/26
 
 < 맴버별 리펙토링 이슈 정리 >
 강우주 : https://github.com/KangWooJu/DomProject_Final/tree/Kangwooju
 강민혁 : https://github.com/KangWooJu/DomProject_Final/tree/master
 권진우 : https://github.com/KangWooJu/DomProject_Final/tree/KwonJinWoo
 
-③ 최종 구현 사항
+####③ 최종 구현 사항
 
 (1) 회원 가입 및 로그인/로그아웃 구현
 : Spring Security5의 CSRF 토큰을 통한 회원 가입 구현 및 로그인 / 로그아웃 구현을 통해 
