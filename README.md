@@ -12,20 +12,20 @@
 ---
 #### ⓪ 개발 환경 및 역할 분담
 
-< 기술 스택 ><br>
+< 기술 스택 ><br><br>
 <img src="https://img.shields.io/badge/Spring-ABF200?style=flat-square&logo=spring&logoColor=white" />
 <img src="https://img.shields.io/badge/mysql-00D8FF?style=flat-square&logo=mysql&logoColor=white" />
 <img src="https://img.shields.io/badge/css-0054FF?style=flat-square&logo=css&logoColor=white" />
 <img src="https://img.shields.io/badge/html-FF5E00?style=flat-square&logo=html&logoColor=white" />
 <img src="https://img.shields.io/badge/javascript-FFE400?style=flat-square&logo=javascript&logoColor=white" />
 
-< 개발진 >
+< 개발진 ><br>
 |<img src="https://github.com/KangWooJu.png" width="80">|<img src="https://github.com/exvcg.png" width="80">|<img src="https://github.com/Kw-jinwoo.png" width="80">|
 |:---:|:---:|:---:|
 |[](https://github.com/ImInnocent)|[](https://github.com/exvcg)|[](https://github.com/Kw-jinwoo)|
 |강우주|강민혁|권진우|
 |백엔드|백엔드|프론트엔드|
-
+<br><br><br>
 #### ① 프로토타입 
 - 리포지토리 : https://github.com/KangWooJu/AJ24_Team1
 - 개발 기한 : 3/1 ~ 6/5 
