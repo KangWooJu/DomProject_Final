@@ -14,12 +14,7 @@
 - 리포지토리 : https://github.com/KangWooJu/AJ24_Team1
 - 개발 기한 : 3/1 ~ 6/5 
 
-② 리팩토링 : 6/26 ~ 7/26
-07/03    
-카테고리 이동 완료     
-07/07    
-로그인 로그아웃 헤더는 시프링 시큐리티5에서는 작동X 임의로 로그인 로그아웃 페이지를 따로만듬/입찰기간이 지난 물건에는 입찰하기 버튼이 안나오게함
-
+② 리팩토링 기간 : 6/26 ~ 7/26
 
 |<img src="https://github.com/KangWooJu.png" width="80">|<img src="https://github.com/~~~.png" width="80">|<img src="https://github.com/~~~.png" width="80">|
 |:---:|:---:|:---:|
